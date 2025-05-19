@@ -10,34 +10,32 @@
 
         <!--DEFAULT BUTTON-->
 
-           <div>
+           <div class="mb-12">
                 <div class="flex items-center">
                     <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
                     <p class="font-semibold text-yellow-950">Button</p>
                 </div>               
-                <div>
-                    <button>Preview</button>
-                    <button>Code</button>
-                    <button>CSS</button>
+                <div class="my-2">
+                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="togglePreview()">Code</button>
+                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showCSS()">CSS</button>
                 </div>
-                <div class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
+                <div id="previewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
                     <button class="ch-btn">Click Me!</button>
                 </div>                            
            </div>
 
            <!--BUTTON SIZES-->
 
-           <div>
+           <div class="mb-12">
                 <div class="flex items-center">
                     <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
                     <p class="font-semibold text-yellow-950">Button Sizes</p>
                 </div>               
-                <div>
-                    <button>Preview</button>
-                    <button>Code</button>
-                    <button>CSS</button>
+                <div class="my-2">
+                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleSizePreview()">Code</button>
+                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showSizeCSS()">CSS</button>
                 </div>
-                <div class="space-x-5 bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
+                <div id="sizePreviewArea" class="space-x-5 bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center overflow-y-auto">
                     <button class="ch-btn-sm">Size sm</button>
                     <button class="ch-btn">Size md</button>
                     <button class="ch-btn-lg">Size lg</button>
@@ -47,17 +45,16 @@
            </div>
 
         <!--BUTTON COLORS-->
-           <div>
+           <div class="mb-12">
                 <div class="flex items-center">
                     <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
                     <p class="font-semibold text-yellow-950">Button Colors</p>
                 </div>               
-                <div>
-                    <button>Preview</button>
-                    <button>Code</button>
-                    <button>CSS</button>
+                <div class="my-2">
+                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleColorPreview()">Code</button>
+                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showColorCSS()">CSS</button>
                 </div>
-                <div class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex space-x-5 items-center justify-center">
+                <div id="colorPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex space-x-5 items-center justify-center">
                     <button class="ch-btn ch-btn-blk">Black</button>
                     <button class="ch-btn ch-btn-ok">Okay</button>
                     <button class="ch-btn ch-btn-error">Error</button>
@@ -65,6 +62,197 @@
                     <button class="ch-btn ch-btn-warm">Warm</button>
                 </div>                            
            </div>
+
+           
        </div>
    </div>
+
+   <!-- JavaScript -->
+<script>
+let showingCode = false;
+let showingCSS = false;
+
+let showingSizeCode = false;
+let showingSizeCSS = false;
+
+let showingColorCode = false;
+let showingColorCSS = false;
+
+function togglePreview() {
+  const preview = document.getElementById("previewArea");
+  
+  if (!showingCode) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-green-200 w-full rounded-md overflow-x-auto"><code>
+&lt;button class="ch-btn"&gt;Click Me!&lt;/button&gt;
+      </code></pre>
+    `;
+    showingCode = true;
+    showingCSS = false; // Ensure CSS preview resets
+  } else {
+    preview.innerHTML = `<button class="ch-btn">Click Me!</button>`;
+    showingCode = false;
+  }
+}
+
+function showCSS() {
+  const preview = document.getElementById("previewArea");
+
+  if (!showingCSS) {
+    preview.innerHTML = `
+      <pre class="bg-gray-800 text-green-200 w-full rounded-md overflow-x-auto p-4"><code>
+.ch-btn {
+    @apply inline-block shadow-none border border-black/10 
+    bg-gray-100 px-4 py-2 font-bold text-black rounded-sm 
+    cursor-pointer active:scale-97;
+  }
+      </code></pre>
+    `;
+    showingCSS = true;
+    showingCode = false; // Ensure code preview resets
+  } else {
+    preview.innerHTML = `<button class="ch-btn">Click Me!</button>`; // Correct reset
+    showingCSS = false;
+  }
+}
+
+function toggleSizePreview() {
+  const preview = document.getElementById("sizePreviewArea");
+  
+  if (!showingSizeCode) {
+    preview.innerHTML = `
+      <pre class="bg-gray-800 text-green-200 w-full rounded-md max-h-60 overflow-y-auto p-4"><code>
+&lt;button class="ch-btn-sm"&gt;Size sm&lt;/button&gt;
+&lt;button class="ch-btn"&gt;Size md&lt;/button&gt;
+&lt;button class="ch-btn-lg"&gt;Size lg&lt;/button&gt;
+&lt;button class="ch-btn-xl"&gt;Size xl&lt;/button&gt;
+&lt;button class="ch-btn-2xl"&gt;Size 2xl&lt;/button&gt;
+      </code></pre>
+    `;
+    showingSizeCode = true;
+    showingSizeCSS = false; // Ensure CSS preview resets
+  } else {
+    preview.innerHTML = `<button class="ch-btn-sm">Size sm</button>
+                    <button class="ch-btn">Size md</button>
+                    <button class="ch-btn-lg">Size lg</button>
+                    <button class="ch-btn-xl">Size xl</button>
+                    <button class="ch-btn-2xl">Size 2xl</button>`;
+    showingSizeCode = false;
+  }
+}
+
+function showSizeCSS() {
+  const preview = document.getElementById("sizePreviewArea");
+
+  if (!showingSizeCSS) {
+    preview.innerHTML = `
+      <pre class="overflow-y-auto max-h-60 bg-gray-800 text-green-200 w-full rounded-md overflow-x-auto p-4"><code>
+.ch-btn-sm {
+    @apply inline-block shadow-none border border-black/10 
+    bg-gray-100 px-2 py-1 font-bold text-black rounded-sm cursor-pointer 
+    text-sm active:scale-97;
+  }
+
+.ch-btn {
+    @apply inline-block shadow-none border border-black/10 
+    bg-gray-100 px-4 py-2 font-bold text-black rounded-sm cursor-pointer 
+    active:scale-97;
+  }
+
+.ch-btn-lg {
+    @apply inline-block shadow-none border border-black/10 
+    bg-gray-100 px-5 py-3 font-bold text-black rounded-sm cursor-pointer 
+    text-lg  active:scale-97;
+  }
+
+.ch-btn-xl {
+    @apply inline-block shadow-none border border-black/10 
+    bg-gray-100 px-6 py-4 font-bold text-black rounded-sm cursor-pointer 
+    text-xl active:scale-97;
+  }
+
+.ch-btn-2xl {
+    @apply inline-block shadow-none border border-black/10 
+    bg-gray-100 px-8 py-5 font-bold text-black rounded-sm cursor-pointer 
+    text-2xl active:scale-97;
+  }
+      </code></pre>
+    `;
+    showingSizeCSS = true;
+    showingSizeCode = false; // Ensure code preview resets
+  } else {
+    preview.innerHTML = `<button class="ch-btn-sm">Size sm</button>
+                    <button class="ch-btn">Size md</button>
+                    <button class="ch-btn-lg">Size lg</button>
+                    <button class="ch-btn-xl">Size xl</button>
+                    <button class="ch-btn-2xl">Size 2xl</button>`; // Reset to default button
+    showingSizeCSS = false;
+  }
+}
+
+function toggleColorPreview() {
+  const preview = document.getElementById("colorPreviewArea");
+
+  if (!showingColorCode) {
+    preview.innerHTML = `
+      <pre class="bg-gray-800 text-green-200 w-full rounded-md overflow-x-auto max-h-60 overflow-y-auto p-4"><code>
+&lt;button class="ch-btn ch-btn-blk"&gt;Black&lt;/button&gt;
+&lt;button class="ch-btn ch-btn-ok"&gt;Okay&lt;/button&gt;
+&lt;button class="ch-btn ch-btn-error"&gt;Error&lt;/button&gt;
+&lt;button class="ch-btn ch-btn-info"&gt;Info&lt;/button&gt;
+&lt;button class="ch-btn ch-btn-warm"&gt;Warm&lt;/button&gt;
+      </code></pre>
+    `;
+    showingColorCode = true;
+    showingColorCSS = false; // Ensure CSS preview resets
+  } else {
+    preview.innerHTML = `<button class="ch-btn ch-btn-blk">Black</button>
+                         <button class="ch-btn ch-btn-ok">Okay</button>
+                         <button class="ch-btn ch-btn-error">Error</button>
+                         <button class="ch-btn ch-btn-info">Info</button>
+                         <button class="ch-btn ch-btn-warm">Warm</button>`;
+    showingColorCode = false;
+  }
+}
+
+function showColorCSS() {
+  const preview = document.getElementById("colorPreviewArea");
+
+  if (!showingColorCSS) {
+    preview.innerHTML = `
+      <pre class="bg-gray-800 text-green-200 w-full rounded-md overflow-x-auto max-h-60 overflow-y-auto p-4"><code>
+.ch-btn-blk {
+    @apply bg-black text-white;
+  }
+
+  .ch-btn-ok {
+    @apply bg-green-400 text-green-700 ;
+  }
+
+  .ch-btn-error {
+    @apply bg-red-400 text-red-700 ;
+  }
+
+  .ch-btn-info {
+    @apply bg-cyan-400 text-blue-950 ;
+  }
+
+  .ch-btn-warm {
+    @apply bg-amber-400 text-amber-700 ;
+  }
+      </code></pre>
+    `;
+    showingColorCSS = true;
+    showingColorCode = false; // Ensure code preview resets
+  } else {
+    preview.innerHTML = `<button class="ch-btn ch-btn-blk">Black</button>
+                         <button class="ch-btn ch-btn-ok">Okay</button>
+                         <button class="ch-btn ch-btn-error">Error</button>
+                         <button class="ch-btn ch-btn-info">Info</button>
+                         <button class="ch-btn ch-btn-warm">Warm</button>`;
+    showingColorCSS = false;
+  }
+}
+
+</script>
 {% endblock  %}
