@@ -14,9 +14,27 @@
 @layer components {
   /* BUTTON */
   .ch-btn {
-    @apply inline-block shadow-none border border-black/10 bg-gray-100 px-4 py-2 font-bold text-black rounded-sm cursor-pointer text-sm active:scale-97;
+    @apply inline-block shadow-none border border-black/10 bg-gray-100 px-4 py-2 font-bold text-black rounded-sm cursor-pointer active:scale-97;
   }
 
+  /* BUTTON SIZES */
+  .ch-btn-sm {
+    @apply inline-block shadow-none border border-black/10 bg-gray-100 px-2 py-1 font-bold text-black rounded-sm cursor-pointer text-sm active:scale-97;
+  }
+
+  .ch-btn-lg {
+    @apply inline-block shadow-none border border-black/10 bg-gray-100 px-5 py-3 font-bold text-black rounded-sm cursor-pointer text-lg  active:scale-97;
+  }
+
+  .ch-btn-xl {
+    @apply inline-block shadow-none border border-black/10 bg-gray-100 px-6 py-4 font-bold text-black rounded-sm cursor-pointer text-xl active:scale-97;
+  }
+
+  .ch-btn-2xl {
+    @apply inline-block shadow-none border border-black/10 bg-gray-100 px-8 py-5 font-bold text-black rounded-sm cursor-pointer text-2xl active:scale-97;
+  }
+
+  /* BUTTON COLORS */
   .ch-btn-blk {
     @apply bg-black text-white;
   }
