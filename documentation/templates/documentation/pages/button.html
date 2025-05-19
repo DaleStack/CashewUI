@@ -1,21 +1,66 @@
 {% extends "documentation/base.html" %}
-
+{% load static %}
 {% block content %}
    <div class="pr-60">
        <div>
-            <p class="text-4xl font-bold">Button</p>
-       </div>
-       <div>
-            <!--DEFAULT BUTTON-->
-            <div class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
-                <button class="ch-btn">Click Me!</button>
-       
-            </div>
-            <!--
-            <pre class="bg-gray-900 text-white p-4 rounded-md"><code>
-                    &lt;button class="btn"&gt;Click Me!&lt;/button&gt;
-                </code></pre>
-                -->
+        <!--TITLE-->
+           <div class="mb-10">
+                <p class="text-4xl font-bold text-yellow-950">Button</p>
+           </div>
+
+        <!--DEFAULT BUTTON-->
+
+           <div>
+                <div class="flex items-center">
+                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                    <p class="font-semibold text-yellow-950">Button</p>
+                </div>               
+                <div>
+                    <button>Preview</button>
+                    <button>Code</button>
+                    <button>CSS</button>
+                </div>
+                <div class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
+                    <button class="ch-btn">Click Me!</button>
+                </div>                            
+           </div>
+
+           <!--BUTTON SIZES-->
+
+           <div>
+                <div class="flex items-center">
+                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                    <p class="font-semibold text-yellow-950">Button Sizes</p>
+                </div>               
+                <div>
+                    <button>Preview</button>
+                    <button>Code</button>
+                    <button>CSS</button>
+                </div>
+                <div class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
+                    <button class="ch-btn">Click Me!</button>
+                </div>                            
+           </div>
+
+        <!--BUTTON COLORS-->
+           <div>
+                <div class="flex items-center">
+                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                    <p class="font-semibold text-yellow-950">Button Colors</p>
+                </div>               
+                <div>
+                    <button>Preview</button>
+                    <button>Code</button>
+                    <button>CSS</button>
+                </div>
+                <div class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex space-x-5 items-center justify-center">
+                    <button class="ch-btn ch-btn-blk">Black</button>
+                    <button class="ch-btn ch-btn-ok">Okay</button>
+                    <button class="ch-btn ch-btn-error">Error</button>
+                    <button class="ch-btn ch-btn-info">Info</button>
+                    <button class="ch-btn ch-btn-warm">Warm</button>
+                </div>                            
+           </div>
        </div>
    </div>
 {% endblock  %}

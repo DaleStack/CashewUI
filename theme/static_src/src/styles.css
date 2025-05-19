@@ -12,7 +12,28 @@
 
 
 @layer components {
+  /* BUTTON */
   .ch-btn {
-    @apply inline-block shadow-none border border-black/10 bg-gray-100 px-4 py-2 font-bold text-black rounded-lg cursor-pointer text-sm active:scale-98 ;
+    @apply inline-block shadow-none border border-black/10 bg-gray-100 px-4 py-2 font-bold text-black rounded-sm cursor-pointer text-sm active:scale-97;
+  }
+
+  .ch-btn-blk {
+    @apply bg-black text-white;
+  }
+
+  .ch-btn-ok {
+    @apply bg-green-400 text-green-700 ;
+  }
+
+  .ch-btn-error {
+    @apply bg-red-400 text-red-700 ;
+  }
+
+  .ch-btn-info {
+    @apply bg-cyan-400 text-blue-950 ;
+  }
+
+  .ch-btn-warm {
+    @apply bg-amber-400 text-amber-700 ;
   }
 }
