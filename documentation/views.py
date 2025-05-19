@@ -3,3 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 def components_view(request):
     return render(request, 'documentation/components.html')
+
+
+#BUTTON COMPONENT
+def button_view(request):
+    return render(request, 'documentation/pages/button.html')

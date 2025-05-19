@@ -12,7 +12,7 @@
 
 
 @layer components {
-  .btn {
-    @apply inline-block px-4 py-2 font-bold text-white bg-blue-500 rounded;
+  .ch-btn {
+    @apply inline-block shadow-none border border-black/10 bg-gray-100 px-4 py-2 font-bold text-black rounded-lg cursor-pointer text-sm active:scale-98 ;
   }
 }

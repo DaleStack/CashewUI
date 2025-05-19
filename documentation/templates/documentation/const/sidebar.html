@@ -1,5 +1,5 @@
 {% load static %}
-<div class="left-0 h-screen w-90 pl-2 pr-4 lg:pl-24 border-r border-black/20 text-yellow-950 py-2">
+<div class="hidden md:block h-screen w-60 lg:w-90 pl-2 pr-4 lg:pl-24 border-r border-black/20 text-yellow-950 py-2">
     <div>
         <div class="flex mb-3 items-center">
             <img src="{% static 'documentation/images/Component.svg' %}" alt="component">
@@ -12,7 +12,7 @@
         </div>
 
         <div class="ml-18 flex flex-col justify-center">
-            <a class=" py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500" href="">
+            <a class=" py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500" href="{% url 'button_view' %}">
                 Button
             </a>
             <a class=" py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500" href="">

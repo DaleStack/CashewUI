@@ -15,9 +15,19 @@
 
 	<body class="bg-yellow-100" style="font-family: 'Quicksand', serif; font-weight: 400; font-style: normal;"> 
 		{% include 'documentation/const/navbar.html' %}
-		{% include 'documentation/const/sidebar.html' %}
-        {% block content %}
 
-        {% endblock %}		
+	<div class="flex h-screen">
+    <!-- Sidebar -->
+		<div>
+			{% include 'documentation/const/sidebar.html' %}
+		</div>
+
+			<!-- Main Content -->
+		<div class="flex-1 p-4">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</div>
+
 	</body>
 </html>
