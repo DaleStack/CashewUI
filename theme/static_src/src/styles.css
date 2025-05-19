@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Quicksand:wght@300..700&display=swap');
 
 /**
   * A catch-all path to Django template files, JavaScript, and Python files
@@ -12,6 +13,6 @@
 
 @layer components {
   .btn {
-    @apply px-4 py-2 font-bold text-white bg-blue-500 rounded;
+    @apply inline-block px-4 py-2 font-bold text-white bg-blue-500 rounded;
   }
 }
