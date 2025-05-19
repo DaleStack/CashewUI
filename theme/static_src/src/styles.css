@@ -8,3 +8,10 @@
   * the scope of this path.
   */
 @source "../../../**/*.{html,py,js}";
+
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 font-bold text-white bg-blue-500 rounded;
+  }
+}
