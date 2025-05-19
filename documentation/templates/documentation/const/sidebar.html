@@ -1,14 +1,26 @@
 {% load static %}
-<div class="left-0 h-screen w-90 pl-2 lg:pl-24 border-r border-black/20 text-yellow-950 py-2">
+<div class="left-0 h-screen w-90 pl-2 pr-4 lg:pl-24 border-r border-black/20 text-yellow-950 py-2">
     <div>
-        <div class="flex">
+        <div class="flex mb-3 items-center">
             <img src="{% static 'documentation/images/Component.svg' %}" alt="component">
-            <p class=>Components</p>
+            <p class="">Components</p>
         </div>
 
-        <div class="ml-5 flex">
+        <div class="ml-8 flex items-center">
             <img src="{% static 'documentation/images/Action.svg' %}" alt="component">
-            <p class=>Actions</p>
+            <p class="">Actions</p>
+        </div>
+
+        <div class="ml-18 flex flex-col justify-center">
+            <a class=" py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500" href="">
+                Button
+            </a>
+            <a class=" py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500" href="">
+                Dropdown
+            </a>
+            <a class=" py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500" href="">
+                Modal
+            </a>
         </div>
     </div>
 </div>
