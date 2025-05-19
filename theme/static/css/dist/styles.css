@@ -225,8 +225,23 @@
   .flex {
     display: flex;
   }
+  .hidden {
+    display: none;
+  }
   .h-screen {
     height: 100vh;
+  }
+  .min-h-full {
+    min-height: 100%;
+  }
+  .w-60 {
+    width: calc(var(--spacing) * 60);
+  }
+  .w-64 {
+    width: calc(var(--spacing) * 64);
+  }
+  .w-80 {
+    width: calc(var(--spacing) * 80);
   }
   .items-center {
     align-items: center;
@@ -255,6 +270,11 @@
     margin-inline-start: calc(calc(var(--spacing) * 10) * var(--tw-space-x-reverse));
     margin-inline-end: calc(calc(var(--spacing) * 10) * calc(1 - var(--tw-space-x-reverse)));
   }
+  :where(.space-x-11 > :not(:last-child)) {
+    --tw-space-x-reverse: 0;
+    margin-inline-start: calc(calc(var(--spacing) * 11) * var(--tw-space-x-reverse));
+    margin-inline-end: calc(calc(var(--spacing) * 11) * calc(1 - var(--tw-space-x-reverse)));
+  }
   :where(.space-x-20 > :not(:last-child)) {
     --tw-space-x-reverse: 0;
     margin-inline-start: calc(calc(var(--spacing) * 20) * var(--tw-space-x-reverse));
@@ -271,6 +291,12 @@
   }
   .bg-yellow-100 {
     background-color: var(--color-yellow-100);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
   }
   .px-24 {
     padding-inline: calc(var(--spacing) * 24);
@@ -348,6 +374,33 @@
   }
   .outline-gray-300 {
     outline-color: var(--color-gray-300);
+  }
+  @media (width >= 48rem) {
+    .md\:flex {
+      display: flex;
+    }
+  }
+  @media (width >= 48rem) {
+    .md\:hidden {
+      display: none;
+    }
+  }
+  @media (width >= 48rem) {
+    .md\:px-24 {
+      padding-inline: calc(var(--spacing) * 24);
+    }
+  }
+  @media (width >= 64rem) {
+    :where(.lg\:space-x-20 > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 20) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 20) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  @media (width >= 64rem) {
+    .lg\:px-24 {
+      padding-inline: calc(var(--spacing) * 24);
+    }
   }
 }
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Quicksand:wght@300..700&display=swap');
