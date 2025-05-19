@@ -54,4 +54,27 @@
   .ch-btn-warm {
     @apply bg-amber-400 text-amber-700 ;
   }
+
+  /* BUTTON OUTLINES */
+  .ch-btn-outline {
+    @apply bg-transparent text-black border-black hover:bg-black hover:text-white duration-300;
+  }
+
+  .ch-btn-outline-ok {
+    @apply bg-transparent text-green-400 border-green-400 hover:bg-green-400 hover:text-green-700 duration-300;
+  }
+
+  .ch-btn-outline-error {
+    @apply bg-transparent text-red-400 border-red-400 hover:bg-red-400 hover:text-red-700 duration-300;
+  }
+
+  .ch-btn-outline-info {
+    @apply bg-transparent text-cyan-400 border-cyan-400 hover:bg-cyan-400 hover:text-blue-950 duration-300;
+  }
+
+  .ch-btn-outline-warm {
+    @apply bg-transparent text-amber-400 border-amber-400 hover:bg-amber-400 hover:text-amber-700 duration-300;
+  }
+  
+  
 }
