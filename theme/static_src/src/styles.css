@@ -75,6 +75,19 @@
   .ch-btn-outline-warm {
     @apply bg-transparent text-amber-400 border-amber-400 hover:bg-amber-400 hover:text-amber-700 duration-300;
   }
+
+  /* BUTTON Square and Circle */
+  .ch-btn-square {
+    @apply flex shadow-none border border-black/10 bg-gray-100 
+    w-12 h-12 font-bold text-black rounded-sm cursor-pointer active:scale-97 
+    items-center justify-center;
+  }
+
+  .ch-btn-circle {
+    @apply flex shadow-none border border-black/10 bg-gray-100 
+    w-12 h-12 font-bold text-black cursor-pointer active:scale-97 
+    items-center justify-center rounded-full;
+  }
   
   
 }

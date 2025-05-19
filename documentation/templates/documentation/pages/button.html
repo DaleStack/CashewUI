@@ -4,7 +4,8 @@
    <div class="pr-60">
        <div>
         <!--TITLE-->
-           <div class="mb-10">
+           <div class="mb-10 flex items-center gap-2">
+                <p class="text-4xl font-bold text-amber-400">Cashew</p>
                 <p class="text-4xl font-bold text-yellow-950">Button</p>
            </div>
 
@@ -82,6 +83,24 @@
                 </div>                            
            </div>
 
+           <!--BUTTON SQUARE AND CIRCLE-->
+           <div class="mb-12">
+                <div class="flex items-center">
+                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                    <p class="font-bold text-yellow-950">Button Square | Circle</p>
+                </div>               
+                <div class="my-2">
+                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleShapePreview()">Code</button>
+                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showShapeCSS()">CSS</button>
+                </div>
+                <div id="shapePreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex space-x-5 items-center justify-center">
+                    <button class="ch-btn-square"><img src="{% static 'documentation/images/Star.svg' %}" alt="Star">
+                    </button>
+                    <button class="ch-btn-circle"><img src="{% static 'documentation/images/Star.svg' %}" alt="Star">
+                    </button>
+                </div>                            
+           </div>
+
            
        </div>
    </div>
@@ -99,6 +118,10 @@ let showingColorCSS = false;
 
 let showingOutlineCode = false;
 let showingOutlineCSS = false;
+
+let showingShapeCode = false;
+let showingShapeCSS = false;
+
 
 function togglePreview() {
   const preview = document.getElementById("previewArea");
@@ -342,6 +365,57 @@ function showOutlineCSS() {
                     <button class="ch-btn ch-btn-outline-info">Info</button>
                     <button class="ch-btn ch-btn-outline-warm">Warm</button>`;
     showingOutlineCSS = false;
+  }
+}
+
+function toggleShapePreview() {
+  const preview = document.getElementById("shapePreviewArea");
+
+  if (!showingShapeCode) {
+    preview.innerHTML = `
+      <pre class="bg-gray-800 text-green-200 w-full rounded-md overflow-x-auto max-h-60 overflow-y-auto p-4"><code>
+&lt;button class="ch-btn-square"&gt;
+    &lt;img src="{% static 'documentation/images/Star.svg' %}" alt="Star"&gt;
+&lt;/button&gt;
+&lt;button class="ch-btn-circle"&gt;
+    &lt;img src="{% static 'documentation/images/Star.svg' %}" alt="Star"&gt;
+&lt;/button&gt;
+      </code></pre>
+    `;
+    showingShapeCode = true;
+    showingShapeCSS = false; // Ensure CSS preview resets
+  } else {
+    preview.innerHTML = `<button class="ch-btn-square"><img src="{% static 'documentation/images/Star.svg' %}" alt="Star"></button>
+                         <button class="ch-btn-circle"><img src="{% static 'documentation/images/Star.svg' %}" alt="Star"></button>`;
+    showingShapeCode = false;
+  }
+}
+
+function showShapeCSS() {
+  const preview = document.getElementById("shapePreviewArea");
+
+  if (!showingShapeCSS) {
+    preview.innerHTML = `
+      <pre class="bg-gray-800 text-green-200 w-full rounded-md overflow-x-auto max-h-60 overflow-y-auto p-4"><code>
+.ch-btn-square {
+    @apply flex shadow-none border border-black/10 bg-gray-100 
+    w-12 h-12 font-bold text-black rounded-sm cursor-pointer active:scale-97 
+    items-center justify-center;
+  }
+
+.ch-btn-circle {
+    @apply flex shadow-none border border-black/10 bg-gray-100 
+    w-12 h-12 font-bold text-black cursor-pointer active:scale-97 
+    items-center justify-center rounded-full;
+  }
+      </code></pre>
+    `;
+    showingShapeCSS = true;
+    showingShapeCode = false; // Ensure code preview resets
+  } else {
+    preview.innerHTML = `<button class="ch-btn-square"><img src="{% static 'documentation/images/Star.svg' %}" alt="Star"></button>
+                         <button class="ch-btn-circle"><img src="{% static 'documentation/images/Star.svg' %}" alt="Star"></button>`;
+    showingShapeCSS = false;
   }
 }
 </script>
