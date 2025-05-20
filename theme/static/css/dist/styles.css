@@ -263,6 +263,12 @@
   .mb-12 {
     margin-bottom: calc(var(--spacing) * 12);
   }
+  .\!ml-0 {
+    margin-left: calc(var(--spacing) * 0) !important;
+  }
+  .ml-0 {
+    margin-left: calc(var(--spacing) * 0);
+  }
   .ml-8 {
     margin-left: calc(var(--spacing) * 8);
   }
@@ -1082,16 +1088,42 @@
     --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
-  .ch-dropdown-center {
-    top: 100%;
-    left: calc(1/2 * 100%);
-    --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+  .ch-dropdown-left {
+    top: calc(1/2 * 100%);
+    right: 100%;
+    margin-right: calc(var(--spacing) * 2);
+    --tw-translate-y: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .ch-dropdown-right {
+    top: calc(1/2 * 100%);
+    left: 100%;
+    margin-left: calc(var(--spacing) * 2);
+    --tw-translate-y: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .ch-dropdown-top {
+    bottom: 100%;
+    left: calc(1/2 * 100%);
+    margin-bottom: calc(var(--spacing) * 2);
+    --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .ch-dropdown-center {
+    top: 100%;
+    left: calc(1/2 * 100%);
+    margin-top: calc(var(--spacing) * 2);
+    --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .ch-dropdown-end {
     top: 100%;
     right: calc(var(--spacing) * 0);
+    margin-top: calc(var(--spacing) * 2);
   }
   .ch-dropdown-item {
     display: block;
