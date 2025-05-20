@@ -1,0 +1,182 @@
+{% extends "documentation/base.html" %}
+{% load static %}
+{% block content %}
+   <div class="pr-60">
+       <div>
+        <!--TITLE-->
+           <div class="mb-10 flex items-center gap-2">
+                <p class="text-4xl font-bold text-amber-400">Cashew</p>
+                <p class="text-4xl font-bold text-yellow-950">Dropdown</p>
+           </div>
+
+        <!--DEFAULT BUTTON-->
+
+           <div class="mb-12">
+                <div class="flex items-center">
+                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                    <p class="font-bold text-yellow-950">Dropdown</p>
+                </div>               
+                <div class="my-2">
+                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleDropdownPreview()">Code</button>
+                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showDropdownCSS()">CSS</button>
+                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showDropdownJS()">JS</button>
+                </div>
+                <div id="dropdownPreviewArea"  class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
+                    <div class="relative inline-block">
+                        <button onclick="toggleDropdown()" class="ch-btn">Click Me!</button>
+
+                        <div id="dropdownMenu" class="ch-dropdown hidden">
+                            <div>
+                                <a href="#" class="ch-dropdown-item">Option 1</a>
+                                <a href="#" class="ch-dropdown-item">Option 2</a>
+                                <a href="#" class="ch-dropdown-item">Option 3</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>   
+                
+                <p><span class="font-bold">*Note:</span> When dealing with Cashew Dropdowns, do not forget to set a container with relative and inline-block attributes</p>
+           </div>
+           
+       </div>
+
+       <div>
+        {% include 'documentation/const/footer.html' %}
+       </div>
+   </div>
+
+   <!-- JavaScript -->
+<script>
+let dropdownShowingCode = false;
+let dropdownShowingCSS = false;
+let dropdownShowingJS = false;
+
+function toggleDropdown() {
+  const menu = document.getElementById("dropdownMenu");
+  menu.classList.toggle("hidden");
+}
+
+function toggleDropdownPreview() {
+  const preview = document.getElementById("dropdownPreviewArea");
+
+  if (!dropdownShowingCode) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-green-200 w-full rounded-md overflow-x-auto">
+<code>
+&lt;div class="relative inline-block"&gt;
+    &lt;button onclick="toggleDropdown()" class="ch-btn"&gt;Click Me!&lt;/button&gt;
+
+    &lt;div id="dropdownMenu" class="ch-dropdown hidden"&gt;
+        &lt;div&gt;
+            &lt;a href="#" class="ch-dropdown-item"&gt;Option 1&lt;/a&gt;
+            &lt;a href="#" class="ch-dropdown-item"&gt;Option 2&lt;/a&gt;
+            &lt;a href="#" class="ch-dropdown-item"&gt;Option 3&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+    `;
+    dropdownShowingCode = true;
+    dropdownShowingCSS = false;
+    dropdownShowingJS = false;
+  } else {
+    showDropdownPreview();
+  }
+}
+
+function showDropdownCSS() {
+  const preview = document.getElementById("dropdownPreviewArea");
+
+  if (!dropdownShowingCSS) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-blue-200 w-full rounded-md overflow-x-auto"><code>
+.ch-btn {
+    @apply inline-block shadow-none border border-black/10 bg-gray-100 px-4 
+    py-2 font-bold text-black rounded-sm cursor-pointer active:scale-97;
+  }
+
+.ch-dropdown {
+  @apply mt-2 w-40 bg-white border border-gray-200 rounded shadow-md absolute z-10;
+}
+
+.ch-dropdown-item {
+  @apply block px-4 py-2 text-sm text-black hover:bg-gray-200 cursor-pointer;
+}
+      </code></pre>
+    `;
+    dropdownShowingCode = false;
+    dropdownShowingCSS = true;
+    dropdownShowingJS = false;
+  } else {
+    showDropdownPreview();
+  }
+}
+
+function showDropdownJS() {
+  const preview = document.getElementById("dropdownPreviewArea");
+
+  if (!dropdownShowingJS) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-yellow-200 w-full rounded-md overflow-x-auto"><code>
+function toggleDropdown() {
+  const menu = document.getElementById("dropdownMenu");
+  menu.classList.toggle("hidden");
+}
+
+document.addEventListener("click", function (e) {
+  const menu = document.getElementById("dropdownMenu");
+  const button = e.target.closest("button");
+
+  if (!e.target.closest("#dropdownMenu") && !button) {
+    menu.classList.add("hidden");
+  }
+});
+      </code></pre>
+    `;
+    dropdownShowingCode = false;
+    dropdownShowingCSS = false;
+    dropdownShowingJS = true;
+  } else {
+    showDropdownPreview();
+  }
+}
+
+function showDropdownPreview() {
+  const preview = document.getElementById("dropdownPreviewArea");
+  preview.innerHTML = `
+    <div>
+      <button onclick="toggleDropdown()" class="ch-btn">Click Me!</button>
+      <div id="dropdownMenu" class="ch-dropdown hidden">
+        <div>
+          <a href="#" class="ch-dropdown-item">Option 1</a>
+          <a href="#" class="ch-dropdown-item">Option 2</a>
+          <a href="#" class="ch-dropdown-item">Option 3</a>
+        </div>
+      </div>
+    </div>
+  `;
+  dropdownShowingCode = false;
+  dropdownShowingCSS = false;
+  dropdownShowingJS = false;
+}
+
+/* DROPDOWN TOGGLE */
+function toggleDropdown() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.classList.toggle("hidden");
+  }
+
+  // Optional: Hide dropdown when clicking outside
+  document.addEventListener("click", function (e) {
+    const menu = document.getElementById("dropdownMenu");
+    const button = e.target.closest("button");
+
+    if (!e.target.closest("#dropdownMenu") && !button) {
+      menu.classList.add("hidden");
+    }
+  });
+</script>
+{% endblock  %}
