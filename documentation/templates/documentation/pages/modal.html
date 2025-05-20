@@ -1,0 +1,260 @@
+{% extends "documentation/base.html" %}
+{% load static %}
+{% block content %}
+<div class="pr-60">
+    <div>
+        <!--TITLE-->
+        <div class="mb-10 flex items-center gap-2">
+            <p class="text-4xl font-bold text-amber-400">Cashew</p>
+            <p class="text-4xl font-bold text-yellow-950">Modal</p>
+        </div>
+
+        <!--DEFAULT MODAL-->
+        <div class="mb-12">
+            <div class="flex items-center">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                <p class="font-bold text-yellow-950">Modal</p>
+            </div>               
+            <div class="my-2">
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleModalPreview()">Code</button>
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showModalCSS()">CSS</button>
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showModalJS()">JS</button>
+            </div>
+
+            <div id="modalPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
+                <button onclick="toggleModal()" class="ch-btn">Open Modal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div id="cashewModal" class="ch-modal !hidden" onclick="toggleModal()">
+        <div class="bg-white p-6 rounded-md shadow-md w-96" onclick="event.stopPropagation()">
+            <h2 class="ch-modal-title">Cashew Modal</h2>
+            <p class="ch-modal-content">This is a modal example.</p>
+            <div class="mt-4 flex justify-end">
+            <button onclick="toggleModal()" class="ch-btn ch-btn-sm ch-btn-warm">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL CLICK OUTSIDE-->
+        <div class="mb-12">
+            <div class="flex items-center">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                <p class="font-bold text-yellow-950">Modal (Removed button)</p>
+            </div>               
+            <div class="my-2">
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleModalOutsidePreview()">Code</button>
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showModalOutsideCSS()">CSS</button>
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showModalOutsideJS()">JS</button>
+            </div>
+
+            <div id="modalOutsidePreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
+                <button onclick="toggleModalOutside()" class="ch-btn">Open Modal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div id="cashewModalOutside" class="ch-modal !hidden" onclick="toggleModalOutside()">
+        <div class="bg-white p-6 rounded-md shadow-md w-96" onclick="event.stopPropagation()">
+            <h2 class="ch-modal-title">Cashew Modal</h2>
+            <p class="ch-modal-content">Click outside to close.</p>
+            <div class="mt-4 flex justify-end">
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        {% include 'documentation/const/footer.html' %}
+    </div>
+</div>
+
+
+
+   <!-- JavaScript -->
+<script>
+let modalShowingCode = false;
+let modalShowingCSS = false;
+let modalShowingJS = false;
+
+let modalOutsideShowingCode = false;
+let modalOutsideShowingCSS = false;
+let modalOutsideShowingJS = false;
+
+function showModalPreview() {
+  const preview = document.getElementById("modalPreviewArea");
+  preview.innerHTML = `
+    <button onclick="toggleModal()" class="ch-btn">Open Modal</button>
+  `;
+  modalShowingCode = false;
+  modalShowingCSS = false;
+  modalShowingJS = false;
+}
+
+function toggleModalPreview() {
+  const preview = document.getElementById("modalPreviewArea");
+
+  if (!modalShowingCode) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-green-200 w-full rounded-md max-h-60 overflow-y-auto"><code>
+&lt;button onclick="toggleModal()" class="ch-btn"&gt;Open Modal&lt;/button&gt;
+
+&lt;div id="cashewModal" class="ch-modal !hidden" onclick="toggleModal()"&gt;
+  &lt;div class="bg-white p-6 rounded-md shadow-md w-96" onclick="event.stopPropagation()"&gt;
+    &lt;h2 class="ch-modal-title"&gt;Cashew Modal&lt;/h2&gt;
+    &lt;p class="ch-modal-content"&gt;This is a modal example.&lt;/p&gt;
+    &lt;div class="mt-4 flex justify-end"&gt;
+      &lt;button onclick="toggleModal()" class="ch-btn ch-btn-sm ch-btn-warm"&gt;Close&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </code></pre>
+    `;
+    modalShowingCode = true;
+    modalShowingCSS = false;
+    modalShowingJS = false;
+  } else {
+    showModalPreview();
+  }
+}
+
+function showModalCSS() {
+  const preview = document.getElementById("modalPreviewArea");
+
+  if (!modalShowingCSS) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-blue-200 w-full rounded-md max-h-60 overflow-y-auto"><code>
+.ch-modal {
+  @apply fixed inset-0 flex items-center justify-center bg-black/50 z-50;
+}
+.ch-modal-title {
+  @apply text-xl font-bold text-yellow-950;
+}
+.ch-modal-content {
+  @apply mt-2 text-gray-700;
+}
+      </code></pre>
+    `;
+    modalShowingCode = false;
+    modalShowingCSS = true;
+    modalShowingJS = false;
+  } else {
+    showModalPreview();
+  }
+}
+
+function showModalJS() {
+  const preview = document.getElementById("modalPreviewArea");
+
+  if (!modalShowingJS) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-yellow-200 w-full rounded-md max-h-60 overflow-y-auto"><code>
+function toggleModal() {
+  const modal = document.getElementById("cashewModal");
+  modal.classList.toggle("!hidden");
+}
+      </code></pre>
+    `;
+    modalShowingCode = false;
+    modalShowingCSS = false;
+    modalShowingJS = true;
+  } else {
+    showModalPreview();
+  }
+}
+
+
+
+function showModalOutsidePreview() {
+  const preview = document.getElementById("modalOutsidePreviewArea");
+  preview.innerHTML = `
+    <button onclick="toggleModalOutside()" class="ch-btn">Open Modal</button>
+  `;
+  modalOutsideShowingCode = false;
+  modalOutsideShowingCSS = false;
+  modalOutsideShowingJS = false;
+}
+
+function toggleModalOutsidePreview() {
+  const preview = document.getElementById("modalOutsidePreviewArea");
+  if (!modalOutsideShowingCode) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-green-200 w-full rounded-md max-h-60 overflow-y-auto"><code>
+&lt;button onclick="toggleModalOutside()" class="ch-btn"&gt;Open Modal&lt;/button&gt;
+
+&lt;div id="cashewModalOutside" class="ch-modal !hidden" onclick="toggleModalOutside()"&gt;
+  &lt;div class="bg-white p-6 rounded-md shadow-md w-96" onclick="event.stopPropagation()"&gt;
+    &lt;h2 class="ch-modal-title"&gt;Cashew Modal&lt;/h2&gt;
+    &lt;p class="ch-modal-content"&gt;Click outside to close.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </code></pre>
+    `;
+    modalOutsideShowingCode = true;
+    modalOutsideShowingCSS = false;
+    modalOutsideShowingJS = false;
+  } else {
+    showModalOutsidePreview();
+  }
+}
+
+function showModalOutsideCSS() {
+  const preview = document.getElementById("modalOutsidePreviewArea");
+
+  if (!modalOutsideShowingCSS) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-blue-200 w-full rounded-md max-h-60 overflow-y-auto"><code>
+.ch-modal {
+  @apply fixed inset-0 flex items-center justify-center bg-black/50 z-50;
+}
+.ch-modal-title {
+  @apply text-xl font-bold text-yellow-950;
+}
+.ch-modal-content {
+  @apply mt-2 text-gray-700;
+}
+      </code></pre>
+    `;
+    modalOutsideShowingCode = false;
+    modalOutsideShowingCSS = true;
+    modalOutsideShowingJS = false;
+  } else {
+    showModalOutsidePreview();
+  }
+}
+
+function showModalOutsideJS() {
+  const preview = document.getElementById("modalOutsidePreviewArea");
+
+  if (!modalOutsideShowingJS) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-yellow-200 w-full rounded-md max-h-60 overflow-y-auto"><code>
+function toggleModalOutside() {
+  const modal = document.getElementById("cashewModalOutside");
+  modal.classList.toggle("!hidden");
+}
+      </code></pre>
+    `;
+    modalOutsideShowingCode = false;
+    modalOutsideShowingCSS = false;
+    modalOutsideShowingJS = true;
+  } else {
+    showModalOutsidePreview();
+  }
+}
+
+function toggleModal() {
+  const modal = document.getElementById("cashewModal");
+  modal.classList.toggle("!hidden");
+}
+
+function toggleModalOutside() {
+  const modal = document.getElementById("cashewModalOutside");
+  modal.classList.toggle("!hidden");
+}
+</script>
+
+{% endblock  %}

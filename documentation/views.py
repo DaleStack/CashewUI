@@ -9,6 +9,10 @@ def components_view(request):
 def button_view(request):
     return render(request, 'documentation/pages/button.html')
 
-#MODAL COMPONENT
+#DROPDOWN COMPONENT
 def dropdown_view(request):
     return render(request, 'documentation/pages/dropdown.html')
+
+#MODAL COMPONENT
+def modal_view(request):
+    return render(request, 'documentation/pages/modal.html')

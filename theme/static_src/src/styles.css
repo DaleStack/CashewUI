@@ -126,6 +126,19 @@
   @apply block px-4 py-2 text-sm text-black hover:bg-gray-200 cursor-pointer;
 }
 
-  
+
+/* MODAL */
+.ch-modal {
+  @apply fixed inset-0 flex items-center justify-center bg-black/50 z-50;
+}
+
+.ch-modal-title {
+  @apply text-xl font-bold text-yellow-950
+}
+
+.ch-modal-content {
+  @apply mt-2 text-gray-700
+}
+
   
 }
