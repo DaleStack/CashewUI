@@ -1,25 +1,44 @@
 {% load static %}
 <div class="hidden md:block h-screen w-60 lg:w-90 pl-2 pr-4 lg:pl-24 border-r border-black/20 text-yellow-950 py-2">
     <div>
-        <div class="flex mb-3 items-center">
+        <div class="flex mb-3 items-center font-semibold text-lg">
             <img src="{% static 'documentation/images/Component.svg' %}" alt="component">
             <p class="">Components</p>
         </div>
 
-        <div class="ml-8 flex items-center">
+        <!--ACTIONS-->
+        <div class="ml-8 flex items-center font-bold">
             <img src="{% static 'documentation/images/Action.svg' %}" alt="component">
             <p class="">Actions</p>
         </div>
 
-        <div class="ml-18 flex flex-col justify-center">
-            <a class=" py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500 border-b border-black/30 hover:border-none" href="{% url 'button_view' %}">
+        <div class="ml-18 flex flex-col justify-center mb-3">
+            <a class="px-2 py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500 border-b border-black/30 hover:border-none" href="{% url 'button_view' %}">
                 Button
             </a>
-            <a class=" py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500 border-b border-black/30 hover:border-none" href="{% url 'dropdown_view' %}">
+            <a class="px-2 py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500 border-b border-black/30 hover:border-none" href="{% url 'dropdown_view' %}">
                 Dropdown
             </a>
-            <a class=" py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500 border-b border-black/30 hover:border-none" href="{% url 'modal_view' %}">
+            <a class="px-2 py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500 border-b border-black/30 hover:border-none" href="{% url 'modal_view' %}">
                 Modal
+            </a>
+        </div>
+
+        <!--DATA DISPLAY-->
+        <div class="ml-8 flex items-center font-bold">
+            <img src="{% static 'documentation/images/Eye.svg' %}" alt="component">
+            <p class="">Data Display</p>
+        </div>
+
+        <div class="ml-18 flex flex-col justify-center">
+            <a class="px-2 py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500 border-b border-black/30 hover:border-none" href="">
+                Accordion
+            </a>
+            <a class="px-2 py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500 border-b border-black/30 hover:border-none" href="">
+                Badge
+            </a>
+            <a class="px-2 py-2 rounded-lg hover:bg-yellow-600 hover:text-white duration-500 border-b border-black/30 hover:border-none" href="">
+                Card
             </a>
         </div>
     </div>
