@@ -105,6 +105,33 @@ function showDropdownCSS() {
 .ch-dropdown-item {
   @apply block px-4 py-2 text-sm text-black hover:bg-gray-200 cursor-pointer;
 }
+
+/* POSITIONING */
+
+/* Dropdown appears to the left of the button */
+.ch-dropdown-left {
+  @apply right-full top-1/2 transform -translate-y-1/2 mr-2;
+}
+
+/* Dropdown appears to the right of the button */
+.ch-dropdown-right {
+  @apply left-full top-1/2 transform -translate-y-1/2 ml-2;
+}
+
+/* Dropdown appears above the button */
+.ch-dropdown-top {
+  @apply left-1/2 bottom-full transform -translate-x-1/2 mb-2;
+}
+
+/* Dropdown appears centered below the button*/
+.ch-dropdown-center {
+  @apply left-1/2 top-full transform -translate-x-1/2 mt-2;
+}
+
+/* Dropdown appears aligned to the end (right) below the button */
+.ch-dropdown-end {
+  @apply right-0 top-full mt-2;
+}
       </code></pre>
     `;
     dropdownShowingCode = false;

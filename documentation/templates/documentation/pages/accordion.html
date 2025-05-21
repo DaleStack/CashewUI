@@ -13,7 +13,7 @@
         <div class="mb-12">
             <div class="flex items-center">
                 <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
-                <p class="font-bold text-yellow-950">Modal</p>
+                <p class="font-bold text-yellow-950">Accordion</p>
             </div>               
             <div class="my-2">
                 <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleAccordionPreview()">Code</button>
@@ -28,6 +28,31 @@
                 </details>
 
                 <details class="ch-accord">
+                    <summary>
+                        Section 2
+                        <span>▶</span>
+                    </summary>
+                    <p>This is the content of section 2. But with simple animations</p>
+                </details>
+
+            </div>
+        </div>
+
+        <!--DEFAULT ACCORDION-->
+        <div class="mb-12">
+            <div class="flex items-center">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                <p class="font-bold text-yellow-950">No gap Accordion</p>
+            </div>               
+
+            <div id="accordionPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center flex-col">
+
+                <details class="ch-accord !mb-0">
+                    <summary>Section 1</summary>
+                    <p>This is the content of section 1. It expands when you click.</p>
+                </details>
+
+                <details class="ch-accord !mb-0">
                     <summary>
                         Section 2
                         <span>▶</span>
