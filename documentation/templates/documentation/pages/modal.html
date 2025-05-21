@@ -20,7 +20,7 @@
                 <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showModalCSS()">CSS</button>
                 <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showModalJS()">JS</button>
             </div>
-
+            <p><span class="font-bold">*Note:</span> onclick="event.stopPropagation()" is necessary. This prevents modal to close when clicking inside.</p>
             <div id="modalPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
                 <button onclick="toggleModal()" class="ch-btn">Open Modal</button>
             </div>
@@ -66,7 +66,7 @@
         </div>       
     </div>
 
-    <p><span class="font-bold">*Note:</span> onclick="event.stopPropagation()" is necessary. This prevents modal to close when clicking inside.</p>
+    
 
     
 

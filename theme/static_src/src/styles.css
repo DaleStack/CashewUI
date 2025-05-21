@@ -12,6 +12,8 @@
 
 
 @layer components {
+  /* ACTIONS */
+
   /* BUTTON */
   .ch-btn {
     @apply inline-block shadow-none border border-black/10 bg-gray-100 px-4 py-2 font-bold text-black rounded-sm cursor-pointer active:scale-97;
@@ -138,6 +140,36 @@
 
 .ch-modal-content {
   @apply mt-2 text-gray-700
+}
+
+/* DATA DISPLAY */
+/* ACCORDION */
+
+.ch-accord {
+  @apply w-80 rounded-md border border-black/50 bg-yellow-50 shadow p-4 mb-4 transition-all duration-300;
+}
+
+/* Accordion header (summary tag) */
+.ch-accord summary {
+  @apply cursor-pointer font-semibold text-black flex items-center justify-between transition-colors;
+}
+
+/* When open: text turns amber */
+.ch-accord[open] summary {
+  @apply text-blue-500;
+}
+
+/* Arrow icon transitions (inside summary) */
+.ch-accord summary span {
+  @apply transition-transform duration-300;
+}
+.ch-accord[open] summary span {
+  @apply rotate-90;
+}
+
+/* Accordion body content */
+.ch-accord p {
+  @apply mt-2 text-gray-700;
 }
 
   

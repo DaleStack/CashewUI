@@ -1,0 +1,155 @@
+{% extends "documentation/base.html" %}
+{% load static %}
+{% block content %}
+<div class="pr-60">
+    <div>
+        <!--TITLE-->
+        <div class="mb-10 flex items-center gap-2">
+            <p class="text-4xl font-bold text-amber-400">Cashew</p>
+            <p class="text-4xl font-bold text-yellow-950">Accordion</p>
+        </div>
+
+        <!--DEFAULT ACCORDION-->
+        <div class="mb-12">
+            <div class="flex items-center">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                <p class="font-bold text-yellow-950">Modal</p>
+            </div>               
+            <div class="my-2">
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleAccordionPreview()">Code</button>
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showAccordionCSS()">CSS</button>
+            </div>
+
+            <div id="accordionPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center flex-col">
+
+                <details class="ch-accord">
+                    <summary>Section 1</summary>
+                    <p>This is the content of section 1. It expands when you click.</p>
+                </details>
+
+                <details class="ch-accord">
+                    <summary>
+                        Section 2
+                        <span>▶</span>
+                    </summary>
+                    <p>This is the content of section 2. But with simple animations</p>
+                </details>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <div>
+        {% include 'documentation/const/footer.html' %}
+    </div>
+</div>
+
+
+
+   <!-- JavaScript -->
+<script>
+let accordionShowingCode = false;
+let accordionShowingCSS = false;
+
+function showAccordionPreview() {
+    const preview = document.getElementById("accordionPreviewArea");
+    preview.innerHTML = `
+        <details class="ch-accord">
+            <summary>Section 1</summary>
+            <p>This is the content of section 1. It expands when you click.</p>
+        </details>
+
+        <details class="ch-accord group">
+            <summary class="flex items-center justify-between group-open:text-amber-500">
+                Section 2
+                <span class="transition-transform duration-300 group-open:rotate-90">▶</span>
+            </summary>
+            <p>This is the content of section 2. But with simple animations</p>
+        </details>
+    `;
+    accordionShowingCode = false;
+    accordionShowingCSS = false;
+}
+
+function toggleAccordionPreview() {
+    const preview = document.getElementById("accordionPreviewArea");
+
+    if (!accordionShowingCode) {
+        preview.innerHTML = `
+            <pre class="px-4 py-2 bg-gray-800 text-green-200 w-full rounded-md max-h-60 overflow-y-auto text-sm"><code>
+&lt;details class="ch-accord"&gt;
+  &lt;summary&gt;Section 1&lt;/summary&gt;
+  &lt;p&gt;This is the content of section 1. It expands when you click.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details class="ch-accord"&gt;
+  &lt;summary&gt;
+    Section 2
+    &lt;span&gt;▶&lt;/span&gt;
+  &lt;/summary&gt;
+  &lt;p&gt;This is the content of section 2. But with simple animations&lt;/p&gt;
+&lt;/details&gt;
+</code></pre>
+
+        `;
+        accordionShowingCode = true;
+        accordionShowingCSS = false;
+    } else {
+        showAccordionPreview();
+    }
+}
+
+function showAccordionCSS() {
+    const preview = document.getElementById("accordionPreviewArea");
+
+    if (!accordionShowingCSS) {
+        preview.innerHTML = `
+            <pre class="px-4 py-2 bg-gray-800 text-blue-200 w-full rounded-md max-h-60 overflow-y-auto text-sm"><code>
+
+.ch-accord {
+  @apply w-80 rounded-md border border-yellow-900 bg-yellow-50 shadow p-4 
+  mb-4 transition-all duration-300;
+}
+
+
+.ch-accord summary {
+  @apply cursor-pointer font-semibold text-yellow-950 flex items-center 
+  justify-between transition-colors;
+}
+
+
+.ch-accord[open] summary {
+  @apply text-amber-500;
+}
+
+
+.ch-accord summary span {
+  @apply transition-transform duration-300;
+}
+
+.ch-accord[open] summary span {
+  @apply rotate-90;
+}
+
+
+.ch-accord p {
+  @apply mt-2 text-gray-700;
+}
+
+
+            </code></pre>
+        `;
+        accordionShowingCode = false;
+        accordionShowingCSS = true;
+    } else {
+        showAccordionPreview();
+    }
+}
+</script>
+
+
+
+{% endblock  %}
