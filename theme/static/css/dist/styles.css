@@ -1242,14 +1242,7 @@
     border-radius: var(--radius-md);
     border-style: var(--tw-border-style);
     border-width: 1px;
-    border-color: color-mix(in srgb, #000 50%, transparent);
-  }
-  @supports (color: color-mix(in lab, red, red)) {
-    .ch-accord {
-      border-color: color-mix(in oklab, var(--color-black) 50%, transparent);
-    }
-  }
-  .ch-accord {
+    border-color: var(--color-yellow-900);
     background-color: var(--color-yellow-50);
     padding: calc(var(--spacing) * 4);
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
@@ -1267,13 +1260,13 @@
     justify-content: space-between;
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
-    color: var(--color-black);
+    color: var(--color-yellow-950);
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .ch-accord[open] summary {
-    color: var(--color-blue-500);
+    color: var(--color-amber-500);
   }
   .ch-accord summary span {
     transition-property: transform, translate, scale, rotate;

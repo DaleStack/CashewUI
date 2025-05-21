@@ -145,18 +145,19 @@
 /* DATA DISPLAY */
 /* ACCORDION */
 
+
 .ch-accord {
-  @apply w-80 rounded-md border border-black/50 bg-yellow-50 shadow p-4 mb-4 transition-all duration-300;
+  @apply w-80 rounded-md border border-yellow-900 bg-yellow-50 shadow p-4 mb-4 transition-all duration-300;
 }
 
 /* Accordion header (summary tag) */
 .ch-accord summary {
-  @apply cursor-pointer font-semibold text-black flex items-center justify-between transition-colors;
+  @apply cursor-pointer font-semibold text-yellow-950 flex items-center justify-between transition-colors;
 }
 
 /* When open: text turns amber */
 .ch-accord[open] summary {
-  @apply text-blue-500;
+  @apply text-amber-500;
 }
 
 /* Arrow icon transitions (inside summary) */
