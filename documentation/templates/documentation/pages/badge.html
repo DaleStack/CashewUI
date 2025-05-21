@@ -1,0 +1,292 @@
+{% extends "documentation/base.html" %}
+{% load static %}
+{% block content %}
+<div class="pr-60">
+    <div>
+        <!-- TITLE -->
+        <div class="mb-10 flex items-center gap-2">
+            <p class="text-4xl font-bold text-amber-400">Cashew</p>
+            <p class="text-4xl font-bold text-yellow-950">Badge</p>
+        </div>
+
+        <!-- DEFAULT BADGE -->
+        <div class="mb-12">
+            <div class="flex items-center">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                <p class="font-bold text-yellow-950">Badge</p>
+            </div>
+            <div class="my-2">
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleBadgePreview()">Code</button>
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showBadgeCSS()">CSS</button>
+            </div>
+
+            <div id="badgePreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center flex-col">
+                <span class="ch-badge">Badge</span>
+            </div>
+        </div>
+
+        <!-- BADGE COLORS -->
+        <div class="mb-12">
+            <div class="flex items-center">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                <p class="font-bold text-yellow-950">Badge with Colors</p>
+            </div>
+            <div class="my-2">
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleBadgeColorPreview()">Code</button>
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showBadgeColorCSS()">CSS</button>
+            </div>
+
+            <div id="badgeColorPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center space-x-5">
+                <span class="ch-badge-blk">black</span>
+                <span class="ch-badge-ok">okay</span>
+                <span class="ch-badge-error">error</span>
+                <span class="ch-badge-info">info</span>
+                <span class="ch-badge-warm">warm</span>
+            </div>
+        </div>
+
+        <!-- BADGE OUTLINES -->
+        <div class="mb-12">
+            <div class="flex items-center">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                <p class="font-bold text-yellow-950">Badge Outlines</p>
+            </div>
+            <div class="my-2">
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleBadgeOutlinePreview()">Code</button>
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showBadgeOutlineCSS()">CSS</button>
+            </div>
+
+            <div id="badgeOutlinePreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center space-x-5">
+                <span class="ch-badge-outline">black</span>
+                <span class="ch-badge-ok-outline">okay</span>
+                <span class="ch-badge-error-outline">error</span>
+                <span class="ch-badge-info-outline">info</span>
+                <span class="ch-badge-warm-outline">warm</span>
+            </div>
+        </div>
+
+        <!-- BUTTON WITH BADGE -->
+        <div class="mb-12">
+            <div class="flex items-center">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                <p class="font-bold text-yellow-950">Button with Badge</p>
+            </div>
+
+            <div id="badgeButtonPreview" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center space-x-5">
+                <button class="ch-btn">
+                    <p>Inbox <span class="ch-badge-info">+99</span></p>
+                </button>
+                <button class="ch-btn">
+                    <p>Inbox <span class="ch-badge-error-outline">+99</span></p>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        {% include 'documentation/const/footer.html' %}
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+let showingBadgeCode = false;
+let showingBadgeCSS = false;
+
+let showingBadgeColorCode = false;
+let showingBadgeColorCSS = false;
+
+let showingBadgeOutlineCode = false;
+let showingBadgeOutlineCSS = false;
+
+
+// BADGE DEFAULT
+function toggleBadgePreview() {
+  const preview = document.getElementById("badgePreviewArea");
+
+  if (!showingBadgeCode) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-green-200 w-full rounded-md max-h-60 overflow-y-auto text-sm"><code>
+&lt;span class="ch-badge"&gt;Badge&lt;/span&gt;
+      </code></pre>
+    `;
+    showingBadgeCode = true;
+    showingBadgeCSS = false;
+  } else {
+    preview.innerHTML = `<span class="ch-badge">Badge</span>`;
+    showingBadgeCode = false;
+  }
+}
+
+function showBadgeCSS() {
+  const preview = document.getElementById("badgePreviewArea");
+
+  if (!showingBadgeCSS) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-blue-200 w-full rounded-md max-h-60 overflow-y-auto text-sm"><code>
+.ch-badge {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold 
+  bg-white text-black;
+}
+      </code></pre>
+    `;
+    showingBadgeCSS = true;
+    showingBadgeCode = false;
+  } else {
+    preview.innerHTML = `<span class="ch-badge">Badge</span>`;
+    showingBadgeCSS = false;
+  }
+}
+
+// BADGE COLORS
+function toggleBadgeColorPreview() {
+  const preview = document.getElementById("badgeColorPreviewArea");
+
+  if (!showingBadgeColorCode) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-green-200 w-full rounded-md max-h-60 overflow-y-auto text-sm"><code>
+&lt;span class="ch-badge-blk"&gt;black&lt;/span&gt;
+&lt;span class="ch-badge-ok"&gt;okay&lt;/span&gt;
+&lt;span class="ch-badge-error"&gt;error&lt;/span&gt;
+&lt;span class="ch-badge-info"&gt;info&lt;/span&gt;
+&lt;span class="ch-badge-warm"&gt;warm&lt;/span&gt;
+      </code></pre>
+    `;
+    showingBadgeColorCode = true;
+    showingBadgeColorCSS = false;
+  } else {
+    preview.innerHTML = `
+      <span class="ch-badge-blk">black</span>
+      <span class="ch-badge-ok">okay</span>
+      <span class="ch-badge-error">error</span>
+      <span class="ch-badge-info">info</span>
+      <span class="ch-badge-warm">warm</span>
+    `;
+    showingBadgeColorCode = false;
+  }
+}
+
+function showBadgeColorCSS() {
+  const preview = document.getElementById("badgeColorPreviewArea");
+
+  if (!showingBadgeColorCSS) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-blue-200 w-full rounded-md max-h-60 overflow-y-auto text-sm"><code>
+.ch-badge-blk {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold 
+  bg-black text-white;
+}
+
+.ch-badge-ok {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold 
+  bg-green-300 text-green-700;
+}
+
+.ch-badge-error {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold 
+  bg-red-300 text-red-700;
+}
+
+.ch-badge-info {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold 
+  bg-cyan-300 text-cyan-700;
+}
+
+.ch-badge-warm {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold 
+  bg-amber-400 text-amber-700;
+}
+      </code></pre>
+    `;
+    showingBadgeColorCSS = true;
+    showingBadgeColorCode = false;
+  } else {
+    preview.innerHTML = `
+      <span class="ch-badge-blk">black</span>
+      <span class="ch-badge-ok">okay</span>
+      <span class="ch-badge-error">error</span>
+      <span class="ch-badge-info">info</span>
+      <span class="ch-badge-warm">warm</span>
+    `;
+    showingBadgeColorCSS = false;
+  }
+}
+
+// BADGE OUTLINE
+function toggleBadgeOutlinePreview() {
+  const preview = document.getElementById("badgeOutlinePreviewArea");
+
+  if (!showingBadgeOutlineCode) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-green-200 w-full rounded-md max-h-60 overflow-y-auto text-sm"><code>
+&lt;span class="ch-badge-outline"&gt;black&lt;/span&gt;
+&lt;span class="ch-badge-ok-outline"&gt;okay&lt;/span&gt;
+&lt;span class="ch-badge-error-outline"&gt;error&lt;/span&gt;
+&lt;span class="ch-badge-info-outline"&gt;info&lt;/span&gt;
+&lt;span class="ch-badge-warm-outline"&gt;warm&lt;/span&gt;
+      </code></pre>
+    `;
+    showingBadgeOutlineCode = true;
+    showingBadgeOutlineCSS = false;
+  } else {
+    preview.innerHTML = `
+      <span class="ch-badge-outline">black</span>
+      <span class="ch-badge-ok-outline">okay</span>
+      <span class="ch-badge-error-outline">error</span>
+      <span class="ch-badge-info-outline">info</span>
+      <span class="ch-badge-warm-outline">warm</span>
+    `;
+    showingBadgeOutlineCode = false;
+  }
+}
+
+function showBadgeOutlineCSS() {
+  const preview = document.getElementById("badgeOutlinePreviewArea");
+
+  if (!showingBadgeOutlineCSS) {
+    preview.innerHTML = `
+      <pre class="px-4 py-2 bg-gray-800 text-blue-200 w-full rounded-md max-h-60 overflow-y-auto text-sm"><code>
+.ch-badge-outline {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold border 
+  border-black text-black;
+}
+
+.ch-badge-ok-outline {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold border 
+  border-green-500 text-green-500;
+}
+
+.ch-badge-error-outline {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold border 
+  border-red-400 text-red-400;
+}
+
+.ch-badge-info-outline {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold border 
+  border-cyan-400 text-cyan-400;
+}
+
+.ch-badge-warm-outline {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold border 
+  border-amber-400 text-amber-400;
+}
+
+      </code></pre>
+    `;
+    showingBadgeOutlineCSS = true;
+    showingBadgeOutlineCode = false;
+  } else {
+    preview.innerHTML = `
+      <span class="ch-badge-outline">black</span>
+      <span class="ch-badge-ok-outline">okay</span>
+      <span class="ch-badge-error-outline">error</span>
+      <span class="ch-badge-info-outline">info</span>
+      <span class="ch-badge-warm-outline">warm</span>
+    `;
+    showingBadgeOutlineCSS = false;
+  }
+}
+
+</script>
+
+{% endblock %}

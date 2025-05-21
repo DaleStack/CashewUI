@@ -20,6 +20,10 @@ def modal_view(request):
 
 #DATA DISPLAY
 
-#MODAL COMPONENT
+#ACCORDION COMPONENT
 def accordion_view(request):
     return render(request, 'documentation/pages/accordion.html')
+
+#BADGE COMPONENT
+def badge_view(request):
+    return render(request, 'documentation/pages/badge.html')

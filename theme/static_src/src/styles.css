@@ -144,8 +144,6 @@
 
 /* DATA DISPLAY */
 /* ACCORDION */
-
-
 .ch-accord {
   @apply w-80 rounded-md border border-yellow-900 bg-yellow-50 shadow p-4 mb-4 transition-all duration-300;
 }
@@ -172,6 +170,55 @@
 .ch-accord p {
   @apply mt-2 text-gray-700;
 }
+
+
+/* BADGE  */
+.ch-badge {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white text-black;
+}
+
+.ch-badge-blk {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold bg-black text-white;
+}
+
+.ch-badge-ok {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold bg-green-300 text-green-700;
+}
+
+.ch-badge-error {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold bg-red-300 text-red-700;
+}
+
+.ch-badge-info {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold bg-cyan-300 text-cyan-700;
+}
+
+.ch-badge-warm {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-400 text-amber-700;
+}
+
+/* BADGE OUTLINE */
+
+.ch-badge-outline {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold border border-black text-black;
+}
+
+.ch-badge-ok-outline {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold border border-green-500 text-green-500;
+}
+
+.ch-badge-error-outline {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold border border-red-400 text-red-400;
+}
+
+.ch-badge-info-outline {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold border border-cyan-400 text-cyan-400;
+}
+
+.ch-badge-warm-outline {
+  @apply inline-block px-3 py-1 rounded-full text-xs font-semibold border border-amber-400 text-amber-400;
+}
+
 
   
 }
