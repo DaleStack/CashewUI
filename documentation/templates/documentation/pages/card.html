@@ -1,0 +1,117 @@
+{% extends "documentation/base.html" %}
+{% load static %}
+{% block content %}
+<div class="pr-60">
+    <div>
+        <!-- TITLE -->
+        <div class="mb-10 flex items-center gap-2">
+            <p class="text-4xl font-bold text-amber-400">Cashew</p>
+            <p class="text-4xl font-bold text-yellow-950">Card</p>
+        </div>
+
+        <div class="overflow-y-auto max-h-60 bg-amber-100 shadow-inner rounded-md mb-10">
+          <table class="w-full text-left text-sm text-yellow-950">
+            <thead class="bg-amber-300 font-bold uppercase text-xs text-yellow-950">
+                <tr>
+                    <th class="px-4 py-2">Class name</th>
+                    <th class="px-4 py-2">Type</th>
+                    <th class="px-4 py-2">Description</th>
+                </tr>
+            </thead>
+            <tbody class="bg-amber-50">
+                <tr class="border-t border-amber-200">
+                    <td class="px-4 py-3">ch-card</td>
+                    <td class="px-4 py-3"><span class="ch-badge-outline">Component</span></td>
+                    <td class="px-4 py-3">Card</td>
+                </tr>
+            </tbody>
+
+          </table>
+        </div>
+
+        <!-- DEFAULT CARD -->
+        <div class="mb-12">
+            <div class="flex items-center">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+                <p class="font-bold text-yellow-950">Card</p>
+            </div>
+            <div class="my-2">
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleCardPreview()">Code</button>
+                <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showCardCSS()">CSS</button>
+            </div>
+
+            <div id="cardPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center flex-col">
+                <div class="ch-card">
+                    <h3 class="text-yellow-900 text-lg font-semibold mb-2">Cashew UI Card</h3>
+                    <p class="text-yellow-950">This is a smooth card component using Tailwind with slight elevation.</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div>
+        {% include 'documentation/const/footer.html' %}
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+let showingCardCode = false;
+let showingCardCSS = false;
+
+function toggleCardPreview() {
+  const preview = document.getElementById("cardPreviewArea");
+
+  if (!showingCardCode) {
+    preview.innerHTML = `
+      <pre class="bg-gray-800 text-green-200 w-full rounded-md max-h-60 overflow-y-auto p-4 text-sm"><code>
+&lt;div class="ch-card"&gt;
+  &lt;h3 class="text-yellow-900 text-lg font-semibold mb-2"&gt;Cashew UI Card&lt;/h3&gt;
+  &lt;p class="text-yellow-950"&gt;This is a smooth card component using Tailwind with slight elevation.&lt;/p&gt;
+&lt;/div&gt;
+      </code></pre>
+    `;
+    showingCardCode = true;
+    showingCardCSS = false;
+  } else {
+    preview.innerHTML = `
+      <div class="ch-card">
+        <h3 class="text-yellow-900 text-lg font-semibold mb-2">Cashew UI Card</h3>
+        <p class="text-yellow-950">This is a smooth card component using Tailwind with slight elevation.</p>
+      </div>
+    `;
+    showingCardCode = false;
+  }
+}
+
+function showCardCSS() {
+  const preview = document.getElementById("cardPreviewArea");
+
+  if (!showingCardCSS) {
+    preview.innerHTML = `
+      <pre class="bg-gray-800 text-blue-200 w-full rounded-md max-h-60 overflow-y-auto p-4 text-sm"><code>
+.ch-card {
+  @apply bg-amber-100 border border-yellow-900 rounded-xl p-6 
+  shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.25)] 
+  transition-all duration-300;
+}
+      </code></pre>
+    `;
+    showingCardCSS = true;
+    showingCardCode = false;
+  } else {
+    preview.innerHTML = `
+      <div class="ch-card">
+        <h3 class="text-yellow-900 text-lg font-semibold mb-2">Cashew UI Card</h3>
+        <p class="text-yellow-950">This is a smooth card component using Tailwind with slight elevation.</p>
+      </div>
+    `;
+    showingCardCSS = false;
+  }
+}
+
+</script>
+
+{% endblock %}

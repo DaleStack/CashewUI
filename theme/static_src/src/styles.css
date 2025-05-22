@@ -220,5 +220,12 @@
 }
 
 
+/* CARD COMPONENT */
+
+.ch-card {
+  @apply bg-amber-100 border border-yellow-900 rounded-xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.25)] transition-all duration-300;
+}
+
+
   
 }

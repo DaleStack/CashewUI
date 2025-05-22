@@ -27,3 +27,7 @@ def accordion_view(request):
 #BADGE COMPONENT
 def badge_view(request):
     return render(request, 'documentation/pages/badge.html')
+
+#CARD COMPONENT
+def card_view(request):
+    return render(request, 'documentation/pages/card.html')
