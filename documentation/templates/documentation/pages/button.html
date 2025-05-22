@@ -1,24 +1,25 @@
 {% extends "documentation/base.html" %}
 {% load static %}
 {% block content %}
-   <div class="pr-60">
-       <div>
-        <!--TITLE-->
-           <div class="mb-10 flex items-center gap-2">
-                <p class="text-4xl font-bold text-amber-400">Cashew</p>
-                <p class="text-4xl font-bold text-yellow-950">Button</p>
-           </div>
+  <div class="px-4 sm:px-8 md:px-16 lg:px-24 xl:pr-60 max-w-screen-xl mx-auto">
+  <div>
+    <!--TITLE-->
+    <div class="mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-2">
+      <p class="text-3xl sm:text-4xl font-bold text-amber-400">Cashew</p>
+      <p class="text-3xl sm:text-4xl font-bold text-yellow-950">Button</p>
+    </div>
 
-        <div class="overflow-y-auto max-h-60 bg-amber-100 shadow-inner rounded-md mb-10">
-          <table class="w-full text-left text-sm text-yellow-950">
-            <thead class="bg-amber-300 font-bold uppercase text-xs text-yellow-950">
-                <tr>
-                    <th class="px-4 py-2">Class name</th>
-                    <th class="px-4 py-2">Type</th>
-                    <th class="px-4 py-2">Description</th>
-                </tr>
-            </thead>
-            <tbody class="bg-amber-50">
+    <!-- TABLE -->
+    <div class="overflow-x-auto overflow-y-auto max-h-60 bg-amber-100 shadow-inner rounded-md mb-10">
+      <table class="min-w-full text-left text-sm text-yellow-950">
+        <thead class="bg-amber-300 font-bold uppercase text-xs text-yellow-950">
+          <tr>
+            <th class="px-4 py-2">Class name</th>
+            <th class="px-4 py-2">Type</th>
+            <th class="px-4 py-2">Description</th>
+          </tr>
+        </thead>
+        <tbody class="bg-amber-50">
                 <tr class="border-t border-amber-200">
                     <td class="px-4 py-3">ch-btn</td>
                     <td class="px-4 py-3"><span class="ch-badge-outline">Component</span></td>
@@ -121,139 +122,134 @@
                     <td class="px-4 py-3">Button Circle</td>
                 </tr>
             </tbody>
+      </table>
+    </div>
 
-                        
-          </table>
+    <!-- ALL COMPONENT SECTIONS -->
+    <div class="space-y-12">
+
+      <!-- DEFAULT BUTTON -->
+      <div>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+          <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew" class="w-8 h-8">
+          <p class="font-bold text-yellow-950">Button</p>
         </div>
+        <div class="my-2 flex flex-wrap gap-2">
+          <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="togglePreview()">Code</button>
+          <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showCSS()">CSS</button>
+        </div>
+        <div id="previewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex flex-col items-center justify-center">
+          <button class="ch-btn">Click Me!</button>
+        </div>
+      </div>
 
-        <!--DEFAULT BUTTON-->
+      <!-- BUTTON SIZES -->
+      <div>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+          <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew" class="w-8 h-8">
+          <p class="font-bold text-yellow-950">Button Sizes</p>
+        </div>
+        <div class="my-2 flex flex-wrap gap-2">
+          <button class="ch-btn ch-btn-sm ch-btn-warm" onclick="toggleSizePreview()">Code</button>
+          <button class="ch-btn ch-btn-sm ch-btn-warm" onclick="showSizeCSS()">CSS</button>
+        </div>
+        <div id="sizePreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex flex-wrap gap-4 items-center justify-center">
+          <button class="ch-btn-sm">Size sm</button>
+          <button class="ch-btn">Size md</button>
+          <button class="ch-btn-lg">Size lg</button>
+          <button class="ch-btn-xl">Size xl</button>
+          <button class="ch-btn-2xl">Size 2xl</button>
+        </div>
+      </div>
 
-           <div class="mb-12">
-                <div class="flex items-center">
-                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
-                    <p class="font-bold text-yellow-950">Button</p>
-                </div>               
-                <div class="my-2">
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="togglePreview()">Code</button>
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showCSS()">CSS</button>
-                </div>
-                <div id="previewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
-                    <button class="ch-btn">Click Me!</button>
-                </div>                            
-           </div>
+      <!-- BUTTON COLORS -->
+      <div>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+          <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew" class="w-8 h-8">
+          <p class="font-bold text-yellow-950">Button Colors</p>
+        </div>
+        <div class="my-2 flex flex-wrap gap-2">
+          <button class="ch-btn ch-btn-sm ch-btn-warm" onclick="toggleColorPreview()">Code</button>
+          <button class="ch-btn ch-btn-sm ch-btn-warm" onclick="showColorCSS()">CSS</button>
+        </div>
+        <div id="colorPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex flex-wrap gap-4 items-center justify-center">
+          <button class="ch-btn ch-btn-blk">Black</button>
+          <button class="ch-btn ch-btn-ok">Okay</button>
+          <button class="ch-btn ch-btn-error">Error</button>
+          <button class="ch-btn ch-btn-info">Info</button>
+          <button class="ch-btn ch-btn-warm">Warm</button>
+        </div>
+      </div>
 
-           <!--BUTTON SIZES-->
+      <!-- BUTTON OUTLINE -->
+      <div>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+          <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew" class="w-8 h-8">
+          <p class="font-bold text-yellow-950">Button Outline</p>
+        </div>
+        <div class="my-2 flex flex-wrap gap-2">
+          <button class="ch-btn ch-btn-sm ch-btn-warm" onclick="toggleOutlinePreview()">Code</button>
+          <button class="ch-btn ch-btn-sm ch-btn-warm" onclick="showOutlineCSS()">CSS</button>
+        </div>
+        <div id="outlinePreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex flex-wrap gap-4 items-center justify-center">
+          <button class="ch-btn ch-btn-outline">Outline</button>
+          <button class="ch-btn ch-btn-outline-ok">Okay</button>
+          <button class="ch-btn ch-btn-outline-error">Error</button>
+          <button class="ch-btn ch-btn-outline-info">Info</button>
+          <button class="ch-btn ch-btn-outline-warm">Warm</button>
+        </div>
+      </div>
 
-           <div class="mb-12">
-                <div class="flex items-center">
-                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
-                    <p class="font-bold text-yellow-950">Button Sizes</p>
-                </div>               
-                <div class="my-2">
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleSizePreview()">Code</button>
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showSizeCSS()">CSS</button>
-                </div>
-                <div id="sizePreviewArea" class="space-x-5 bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center overflow-y-auto">
-                    <button class="ch-btn-sm">Size sm</button>
-                    <button class="ch-btn">Size md</button>
-                    <button class="ch-btn-lg">Size lg</button>
-                    <button class="ch-btn-xl">Size xl</button>
-                    <button class="ch-btn-2xl">Size 2xl</button>
-                </div>                            
-           </div>
+      <!-- SQUARE & CIRCLE -->
+      <div>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+          <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew" class="w-8 h-8">
+          <p class="font-bold text-yellow-950">Button Square | Circle</p>
+        </div>
+        <div class="my-2 flex flex-wrap gap-2">
+          <button class="ch-btn ch-btn-sm ch-btn-warm" onclick="toggleShapePreview()">Code</button>
+          <button class="ch-btn ch-btn-sm ch-btn-warm" onclick="showShapeCSS()">CSS</button>
+        </div>
+        <div id="shapePreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex flex-wrap gap-4 items-center justify-center">
+          <button class="ch-btn-square"><img src="{% static 'documentation/images/Star.svg' %}" alt="Star"></button>
+          <button class="ch-btn-circle"><img src="{% static 'documentation/images/Star.svg' %}" alt="Star"></button>
+        </div>
+      </div>
 
-        <!--BUTTON COLORS-->
-           <div class="mb-12">
-                <div class="flex items-center">
-                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
-                    <p class="font-bold text-yellow-950">Button Colors</p>
-                </div>               
-                <div class="my-2">
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleColorPreview()">Code</button>
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showColorCSS()">CSS</button>
-                </div>
-                <div id="colorPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex space-x-5 items-center justify-center">
-                    <button class="ch-btn ch-btn-blk">Black</button>
-                    <button class="ch-btn ch-btn-ok">Okay</button>
-                    <button class="ch-btn ch-btn-error">Error</button>
-                    <button class="ch-btn ch-btn-info">Info</button>
-                    <button class="ch-btn ch-btn-warm">Warm</button>
-                </div>                            
-           </div>
+      <!-- LOGIN EXAMPLES -->
+      <div>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+          <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew" class="w-8 h-8">
+          <p class="font-bold text-yellow-950">Example Login Buttons</p>
+        </div>
+        <div class="my-2 flex flex-wrap gap-2">
+          <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleLoginPreview()">Code</button>
+        </div>
+        <div id="loginPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex flex-col space-y-4 items-center justify-center">
+          <button class="ch-btn !bg-blue-500 !flex !text-white">
+            <img src="{% static 'documentation/images/Facebook.svg' %}" alt="Facebook">
+            <p>Login with Facebook</p>
+          </button>
+          <button class="ch-btn ch-btn-blk !flex !text-white">
+            <img src="{% static 'documentation/images/Github.svg' %}" alt="Github">
+            <p>Login with Github</p>
+          </button>
+          <button class="ch-btn ch-btn-info !flex !text-white">
+            <img src="{% static 'documentation/images/Telegram.svg' %}" alt="Telegram">
+            <p>Login with Telegram</p>
+          </button>
+        </div>
+      </div>
 
-           <!--BUTTON OUTLINE-->
-           <div class="mb-12">
-                <div class="flex items-center">
-                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
-                    <p class="font-bold text-yellow-950">Button Outline</p>
-                </div>               
-                <div class="my-2">
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleOutlinePreview()">Code</button>
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showOutlineCSS()">CSS</button>
-                </div>
-                <div id="outlinePreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex space-x-5 items-center justify-center">
-                    <button class="ch-btn ch-btn-outline">Outline</button>
-                    <button class="ch-btn ch-btn-outline-ok">Okay</button>
-                    <button class="ch-btn ch-btn-outline-error">Error</button>
-                    <button class="ch-btn ch-btn-outline-info">Info</button>
-                    <button class="ch-btn ch-btn-outline-warm">Warm</button>
-                </div>                            
-           </div>
+    </div>
+  </div>
 
-           <!--BUTTON SQUARE AND CIRCLE-->
-           <div class="mb-12">
-                <div class="flex items-center">
-                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
-                    <p class="font-bold text-yellow-950">Button Square | Circle</p>
-                </div>               
-                <div class="my-2">
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleShapePreview()">Code</button>
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showShapeCSS()">CSS</button>
-                </div>
-                <div id="shapePreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex space-x-5 items-center justify-center">
-                    <button class="ch-btn-square"><img src="{% static 'documentation/images/Star.svg' %}" alt="Star">
-                    </button>
-                    <button class="ch-btn-circle"><img src="{% static 'documentation/images/Star.svg' %}" alt="Star">
-                    </button>
-                </div>                            
-           </div>
+  <!-- Footer -->
+  <div class="mt-16">
+    {% include 'documentation/const/footer.html' %}
+  </div>
+</div>
 
-           <!--EXAMPLE BUTTONS-->
-           <div class="mb-12">
-                <div class="flex items-center">
-                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
-                    <p class="font-bold text-yellow-950">Example Login Buttons</p>
-                </div>               
-                <div class="my-2">
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleLoginPreview()">Code</button>
-                </div>
-
-                <div id="loginPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex flex-col space-y-2 items-center justify-center">
-                    <button class="ch-btn !bg-blue-500 !flex !text-white">
-                        <img src="{% static 'documentation/images/Facebook.svg' %}" alt="Facebook">
-                        <p>Login with Facebook</p>
-                    </button>
-
-                    <button class="ch-btn ch-btn-blk !flex !text-white">
-                        <img src="{% static 'documentation/images/Github.svg' %}" alt="Github">
-                        <p>Login with Github</p>
-                    </button>
-
-                    <button class="ch-btn ch-btn-info !flex !text-white">
-                        <img src="{% static 'documentation/images/Telegram.svg' %}" alt="Telegram">
-                        <p>Login with Telegram</p>
-                    </button>
-                    
-                </div>                            
-           </div>
-
-           
-       </div>
-
-       <div>
-        {% include 'documentation/const/footer.html' %}
-       </div>
-   </div>
 
    <!-- JavaScript -->
 <script>
