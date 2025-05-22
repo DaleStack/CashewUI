@@ -1,121 +1,99 @@
 {% extends "documentation/base.html" %}
 {% load static %}
 {% block content %}
-   <div class="pr-60">
-       <div>
-        <!--TITLE-->
-           <div class="mb-10 flex items-center gap-2">
-                <p class="text-4xl font-bold text-amber-400">Cashew</p>
-                <p class="text-4xl font-bold text-yellow-950">Dropdown</p>
-           </div>
+  <div class="px-4 sm:px-6 lg:px-8 xl:pr-60 max-w-screen-xl mx-auto">
+  <div>
+    <!-- TITLE -->
+    <div class="mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-2">
+      <p class="text-3xl sm:text-4xl font-bold text-amber-400">Cashew</p>
+      <p class="text-3xl sm:text-4xl font-bold text-yellow-950">Dropdown</p>
+    </div>
 
-           <div class="overflow-y-auto max-h-60 bg-amber-100 shadow-inner rounded-md mb-10">
-          <table class="w-full text-left text-sm text-yellow-950">
-            <thead class="bg-amber-300 font-bold uppercase text-xs text-yellow-950">
-                <tr>
-                    <th class="px-4 py-2">Class name</th>
-                    <th class="px-4 py-2">Type</th>
-                    <th class="px-4 py-2">Description</th>
-                </tr>
-            </thead>
-            <tbody class="bg-amber-50">
-                <tr class="border-t border-amber-200">
-                    <td class="px-4 py-3">ch-dropdown</td>
-                    <td class="px-4 py-3"><span class="ch-badge-outline">Component</span></td>
-                    <td class="px-4 py-3">Dropdown</td>
-                </tr>
-            </tbody>
+    <!-- TABLE -->
+    <div class="overflow-x-auto max-h-60 bg-amber-100 shadow-inner rounded-md mb-10">
+      <table class="min-w-full text-left text-sm text-yellow-950">
+        <thead class="bg-amber-300 font-bold uppercase text-xs text-yellow-950">
+          <tr>
+            <th class="px-4 py-2 whitespace-nowrap">Class name</th>
+            <th class="px-4 py-2 whitespace-nowrap">Type</th>
+            <th class="px-4 py-2 whitespace-nowrap">Description</th>
+          </tr>
+        </thead>
+        <tbody class="bg-amber-50 divide-y divide-amber-200">
+          <tr>
+            <td class="px-4 py-3">ch-dropdown</td>
+            <td class="px-4 py-3"><span class="ch-badge-outline">Component</span></td>
+            <td class="px-4 py-3">Dropdown</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3">ch-dropdown-left</td>
+            <td class="px-4 py-3"><span class="ch-badge-ok-outline">Positioning</span></td>
+            <td class="px-4 py-3">Dropdown showing on the left side</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3">ch-dropdown-right</td>
+            <td class="px-4 py-3"><span class="ch-badge-ok-outline">Positioning</span></td>
+            <td class="px-4 py-3">Dropdown showing on the right side</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3">ch-dropdown-top</td>
+            <td class="px-4 py-3"><span class="ch-badge-ok-outline">Positioning</span></td>
+            <td class="px-4 py-3">Dropdown showing on the top</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3">ch-dropdown-center</td>
+            <td class="px-4 py-3"><span class="ch-badge-ok-outline">Positioning</span></td>
+            <td class="px-4 py-3">Dropdown showing on the center bottom</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3">ch-dropdown-end</td>
+            <td class="px-4 py-3"><span class="ch-badge-ok-outline">Positioning</span></td>
+            <td class="px-4 py-3">Dropdown showing on the bottom aligned to the end</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3">ch-dropdown-item</td>
+            <td class="px-4 py-3"><span class="ch-badge-info-outline">Style</span></td>
+            <td class="px-4 py-3">Dropdown items</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-            <tbody class="bg-amber-50">
-                <tr class="border-t border-amber-200">
-                    <td class="px-4 py-3">ch-dropdown-left</td>
-                    <td class="px-4 py-3"><span class="ch-badge-ok-outline">Positioning</span></td>
-                    <td class="px-4 py-3">Dropdown showing on the left side</td>
-                </tr>
-            </tbody>
+    <!-- DROPDOWN EXAMPLE -->
+    <div class="mb-12 space-y-4">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+        <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew" class="w-8 h-8">
+        <p class="font-bold text-yellow-950">Dropdown</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleDropdownPreview()">Code</button>
+        <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showDropdownCSS()">CSS</button>
+        <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showDropdownJS()">JS</button>
+      </div>
 
-            <tbody class="bg-amber-50">
-                <tr class="border-t border-amber-200">
-                    <td class="px-4 py-3">ch-dropdown-right</td>
-                    <td class="px-4 py-3"><span class="ch-badge-ok-outline">Positioning</span></td>
-                    <td class="px-4 py-3">Dropdown showing on the right side</td>
-                </tr>
-            </tbody>
-
-            <tbody class="bg-amber-50">
-                <tr class="border-t border-amber-200">
-                    <td class="px-4 py-3">ch-dropdown-top</td>
-                    <td class="px-4 py-3"><span class="ch-badge-ok-outline">Positioning</span></td>
-                    <td class="px-4 py-3">Dropdown showing on the top</td>
-                </tr>
-            </tbody>
-
-            <tbody class="bg-amber-50">
-                <tr class="border-t border-amber-200">
-                    <td class="px-4 py-3">ch-dropdown-center</td>
-                    <td class="px-4 py-3"><span class="ch-badge-ok-outline">Positioning</span></td>
-                    <td class="px-4 py-3">Dropdown showing on the center bottom</td>
-                </tr>
-            </tbody>
-
-            <tbody class="bg-amber-50">
-                <tr class="border-t border-amber-200">
-                    <td class="px-4 py-3">ch-dropdown-end</td>
-                    <td class="px-4 py-3"><span class="ch-badge-ok-outline">Positioning</span></td>
-                    <td class="px-4 py-3">Dropdown showing on the bottom aligned to the end</td>
-                </tr>
-            </tbody>
-
-            <tbody class="bg-amber-50">
-                <tr class="border-t border-amber-200">
-                    <td class="px-4 py-3">ch-dropdown-item</td>
-                    <td class="px-4 py-3"><span class="ch-badge-info-outline">Style</span></td>
-                    <td class="px-4 py-3">Dropdown items</td>
-                </tr>
-            </tbody>
-
-            
-
-                        
-          </table>
+      <div id="dropdownPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
+        <div class="relative inline-block">
+          <button onclick="toggleDropdown()" class="ch-btn">Dropdown</button>
+          <div id="dropdownMenu" class="ch-dropdown hidden">
+            <div>
+              <a href="#" class="ch-dropdown-item">Option 1</a>
+              <a href="#" class="ch-dropdown-item">Option 2</a>
+              <a href="#" class="ch-dropdown-item">Option 3</a>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!--DEFAULT DROPDOWN-->
+      <p class="text-sm text-yellow-950"><span class="font-bold">*Note:</span> When dealing with Cashew Dropdowns, do not forget to set a container with <code class="bg-amber-100 px-1 py-0.5 rounded">relative</code> and <code class="bg-amber-100 px-1 py-0.5 rounded">inline-block</code> attributes.</p>
+    </div>
+  </div>
 
-           <div class="mb-12">
-                <div class="flex items-center">
-                    <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
-                    <p class="font-bold text-yellow-950">Dropdown</p>
-                </div>               
-                <div class="my-2">
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleDropdownPreview()">Code</button>
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showDropdownCSS()">CSS</button>
-                    <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showDropdownJS()">JS</button>
-                </div>
-                <div id="dropdownPreviewArea"  class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
-                    <div class="relative inline-block">
-                        <button onclick="toggleDropdown()" class="ch-btn">Dropdown</button>
+  <!-- FOOTER -->
+  <div class="mt-16">
+    {% include 'documentation/const/footer.html' %}
+  </div>
+</div>
 
-                        <div id="dropdownMenu" class="ch-dropdown hidden">
-                            <div>
-                                <a href="#" class="ch-dropdown-item">Option 1</a>
-                                <a href="#" class="ch-dropdown-item">Option 2</a>
-                                <a href="#" class="ch-dropdown-item">Option 3</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>   
-                
-                <p><span class="font-bold">*Note:</span> When dealing with Cashew Dropdowns, do not forget to set a container with relative and inline-block attributes.</p>
-           </div>
-           
-       </div>
-
-       <div>
-        {% include 'documentation/const/footer.html' %}
-       </div>
-   </div>
 
    <!-- JavaScript -->
 <script>
