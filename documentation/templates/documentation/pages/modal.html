@@ -1,117 +1,103 @@
 {% extends "documentation/base.html" %}
 {% load static %}
 {% block content %}
-<div class="pr-60">
+<div class="px-4 sm:px-6 lg:pr-60">
     <div>
         <!--TITLE-->
-        <div class="mb-10 flex items-center gap-2">
-            <p class="text-4xl font-bold text-amber-400">Cashew</p>
-            <p class="text-4xl font-bold text-yellow-950">Modal</p>
+        <div class="mb-10 flex flex-wrap items-center gap-2">
+            <p class="text-3xl sm:text-4xl font-bold text-amber-400">Cashew</p>
+            <p class="text-3xl sm:text-4xl font-bold text-yellow-950">Modal</p>
         </div>
 
-        <div class="overflow-y-auto max-h-60 bg-amber-100 shadow-inner rounded-md mb-10">
-          <table class="w-full text-left text-sm text-yellow-950">
-            <thead class="bg-amber-300 font-bold uppercase text-xs text-yellow-950">
-                <tr>
-                    <th class="px-4 py-2">Class name</th>
-                    <th class="px-4 py-2">Type</th>
-                    <th class="px-4 py-2">Description</th>
-                </tr>
-            </thead>
-            <tbody class="bg-amber-50">
-                <tr class="border-t border-amber-200">
-                    <td class="px-4 py-3">ch-modal</td>
-                    <td class="px-4 py-3"><span class="ch-badge-outline">Component</span></td>
-                    <td class="px-4 py-3">Modal</td>
-                </tr>
-            </tbody>
-
-            <tbody class="bg-amber-50">
-                <tr class="border-t border-amber-200">
-                    <td class="px-4 py-3">ch-modal-title</td>
-                    <td class="px-4 py-3"><span class="ch-badge-info-outline">Style</span></td>
-                    <td class="px-4 py-3">Modal Title</td>
-                </tr>
-            </tbody>
-
-            <tbody class="bg-amber-50">
-                <tr class="border-t border-amber-200">
-                    <td class="px-4 py-3">ch-modal-content</td>
-                    <td class="px-4 py-3"><span class="ch-badge-info-outline">Style</span></td>
-                    <td class="px-4 py-3">Modal Content</td>
-                </tr>
-            </tbody>
-                                  
-          </table>
+        <!-- Table -->
+        <div class="overflow-x-auto bg-amber-100 shadow-inner rounded-md mb-10 max-h-60">
+            <table class="min-w-full text-left text-sm text-yellow-950">
+                <thead class="bg-amber-300 font-bold uppercase text-xs text-yellow-950">
+                    <tr>
+                        <th class="px-4 py-2">Class name</th>
+                        <th class="px-4 py-2">Type</th>
+                        <th class="px-4 py-2">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-amber-50 divide-y divide-amber-200">
+                    <tr>
+                        <td class="px-4 py-3">ch-modal</td>
+                        <td class="px-4 py-3"><span class="ch-badge-outline">Component</span></td>
+                        <td class="px-4 py-3">Modal</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3">ch-modal-title</td>
+                        <td class="px-4 py-3"><span class="ch-badge-info-outline">Style</span></td>
+                        <td class="px-4 py-3">Modal Title</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-3">ch-modal-content</td>
+                        <td class="px-4 py-3"><span class="ch-badge-info-outline">Style</span></td>
+                        <td class="px-4 py-3">Modal Content</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!--DEFAULT MODAL-->
         <div class="mb-12">
-            <div class="flex items-center">
-                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+            <div class="flex flex-wrap items-center gap-2">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew" class="w-6 h-6">
                 <p class="font-bold text-yellow-950">Modal</p>
             </div>               
-            <div class="my-2">
+            <div class="my-2 flex flex-wrap gap-2">
                 <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleModalPreview()">Code</button>
                 <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showModalCSS()">CSS</button>
                 <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showModalJS()">JS</button>
             </div>
-            <p><span class="font-bold">*Note:</span> onclick="event.stopPropagation()" is necessary. This prevents modal to close when clicking inside.</p>
-            <div id="modalPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
+            <p class="text-sm"><span class="font-bold">*Note:</span> onclick="event.stopPropagation()" is necessary. This prevents modal from closing when clicking inside.</p>
+            <div id="modalPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center mt-4">
                 <button onclick="toggleModal()" class="ch-btn">Open Modal</button>
             </div>
         </div>
-        
-    </div>
 
-    <!-- Modal Overlay -->
-    <div id="cashewModal" class="ch-modal !hidden" onclick="toggleModal()">
-        <div class="bg-white p-6 rounded-md shadow-md w-96" onclick="event.stopPropagation()">
-            <h2 class="ch-modal-title">Cashew Modal</h2>
-            <p class="ch-modal-content">This is a modal example.</p>
-            <div class="mt-4 flex justify-end">
-            <button onclick="toggleModal()" class="ch-btn ch-btn-sm ch-btn-warm">Close</button>
+        <!-- Modal -->
+        <div id="cashewModal" class="ch-modal !hidden" onclick="toggleModal()">
+            <div class="bg-white p-6 rounded-md shadow-md w-11/12 sm:w-96 mx-auto" onclick="event.stopPropagation()">
+                <h2 class="ch-modal-title">Cashew Modal</h2>
+                <p class="ch-modal-content">This is a modal example.</p>
+                <div class="mt-4 flex justify-end">
+                    <button onclick="toggleModal()" class="ch-btn ch-btn-sm ch-btn-warm">Close</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!--MODAL CLICK OUTSIDE-->
+        <!--MODAL CLICK OUTSIDE-->
         <div class="mb-12">
-            <div class="flex items-center">
-                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+            <div class="flex flex-wrap items-center gap-2">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew" class="w-6 h-6">
                 <p class="font-bold text-yellow-950">Modal (Removed button)</p>
             </div>               
-            <div class="my-2">
+            <div class="my-2 flex flex-wrap gap-2">
                 <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleModalOutsidePreview()">Code</button>
                 <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showModalOutsideCSS()">CSS</button>
                 <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showModalOutsideJS()">JS</button>
             </div>
 
-            <div id="modalOutsidePreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center">
+            <div id="modalOutsidePreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center mt-4">
                 <button onclick="toggleModalOutside()" class="ch-btn">Open Modal</button>
             </div>
         </div>
-    </div>
 
-    <!-- Modal Overlay -->
-    <div id="cashewModalOutside" class="ch-modal !hidden" onclick="toggleModalOutside()">
-        <div class="bg-white p-6 rounded-md shadow-md w-96" onclick="event.stopPropagation()">
-            <h2 class="ch-modal-title">Cashew Modal</h2>
-            <p class="ch-modal-content">Click outside to close.</p>
-            <div class="mt-4 flex justify-end">
-            </div>
-        </div>       
-    </div>
+        <!-- Modal Without Close Button -->
+        <div id="cashewModalOutside" class="ch-modal !hidden" onclick="toggleModalOutside()">
+            <div class="bg-white p-6 rounded-md shadow-md w-11/12 sm:w-96 mx-auto" onclick="event.stopPropagation()">
+                <h2 class="ch-modal-title">Cashew Modal</h2>
+                <p class="ch-modal-content">Click outside to close.</p>
+            </div>       
+        </div>
 
-    
-
-    
-
-
-    <div>
-        {% include 'documentation/const/footer.html' %}
+        <div>
+            {% include 'documentation/const/footer.html' %}
+        </div>
     </div>
 </div>
+
 
 
 
