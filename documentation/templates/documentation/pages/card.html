@@ -1,60 +1,59 @@
 {% extends "documentation/base.html" %}
 {% load static %}
 {% block content %}
-<div class="pr-60">
+<div class="px-4 md:pr-20 lg:pr-40 xl:pr-60">
     <div>
         <!-- TITLE -->
-        <div class="mb-10 flex items-center gap-2">
-            <p class="text-4xl font-bold text-amber-400">Cashew</p>
-            <p class="text-4xl font-bold text-yellow-950">Card</p>
+        <div class="mb-10 flex flex-wrap items-center gap-2">
+            <p class="text-3xl sm:text-4xl font-bold text-amber-400">Cashew</p>
+            <p class="text-3xl sm:text-4xl font-bold text-yellow-950">Card</p>
         </div>
 
-        <div class="overflow-y-auto max-h-60 bg-amber-100 shadow-inner rounded-md mb-10">
-          <table class="w-full text-left text-sm text-yellow-950">
-            <thead class="bg-amber-300 font-bold uppercase text-xs text-yellow-950">
-                <tr>
-                    <th class="px-4 py-2">Class name</th>
-                    <th class="px-4 py-2">Type</th>
-                    <th class="px-4 py-2">Description</th>
-                </tr>
-            </thead>
-            <tbody class="bg-amber-50">
-                <tr class="border-t border-amber-200">
-                    <td class="px-4 py-3">ch-card</td>
-                    <td class="px-4 py-3"><span class="ch-badge-outline">Component</span></td>
-                    <td class="px-4 py-3">Card</td>
-                </tr>
-            </tbody>
-
-          </table>
+        <!-- TABLE -->
+        <div class="overflow-x-auto max-h-60 bg-amber-100 shadow-inner rounded-md mb-10">
+            <table class="w-full text-left text-sm text-yellow-950 min-w-[600px]">
+                <thead class="bg-amber-300 font-bold uppercase text-xs text-yellow-950">
+                    <tr>
+                        <th class="px-4 py-2">Class name</th>
+                        <th class="px-4 py-2">Type</th>
+                        <th class="px-4 py-2">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-amber-50">
+                    <tr class="border-t border-amber-200">
+                        <td class="px-4 py-3">ch-card</td>
+                        <td class="px-4 py-3"><span class="ch-badge-outline">Component</span></td>
+                        <td class="px-4 py-3">Card</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- DEFAULT CARD -->
         <div class="mb-12">
-            <div class="flex items-center">
-                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew">
+            <div class="flex items-center gap-2 flex-wrap">
+                <img src="{% static 'documentation/images/Cashew.svg' %}" alt="Cashew" class="w-6 h-6">
                 <p class="font-bold text-yellow-950">Card</p>
             </div>
-            <div class="my-2">
+            <div class="my-2 flex flex-wrap gap-2">
                 <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="toggleCardPreview()">Code</button>
                 <button class="cursor-pointer ch-btn ch-btn-sm ch-btn-warm" onclick="showCardCSS()">CSS</button>
             </div>
 
-            <div id="cardPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex items-center justify-center flex-col">
-                <div class="ch-card">
+            <div id="cardPreviewArea" class="bg-amber-200 shadow-inner text-white p-4 rounded-md flex flex-col items-center justify-center">
+                <div class="ch-card max-w-md w-full">
                     <h3 class="text-yellow-900 text-lg font-semibold mb-2">Cashew UI Card</h3>
                     <p class="text-yellow-950">This is a smooth card component using Tailwind with slight elevation.</p>
                 </div>
             </div>
         </div>
-
-
     </div>
 
     <div>
         {% include 'documentation/const/footer.html' %}
     </div>
 </div>
+
 
 <!-- JavaScript -->
 <script>
