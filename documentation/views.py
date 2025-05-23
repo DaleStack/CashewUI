@@ -31,3 +31,7 @@ def badge_view(request):
 #CARD COMPONENT
 def card_view(request):
     return render(request, 'documentation/pages/card.html')
+
+#ALERT COMPONENT
+def alert_view(request):
+    return render(request, 'documentation/pages/alert.html')
