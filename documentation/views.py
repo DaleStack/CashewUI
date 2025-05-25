@@ -35,3 +35,7 @@ def card_view(request):
 #ALERT COMPONENT
 def alert_view(request):
     return render(request, 'documentation/pages/alert.html')
+
+#TOOLTIP COMPONENT
+def tooltip_view(request):
+    return render(request, 'documentation/pages/tooltip.html')
