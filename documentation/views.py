@@ -39,3 +39,7 @@ def alert_view(request):
 #TOOLTIP COMPONENT
 def tooltip_view(request):
     return render(request, 'documentation/pages/tooltip.html')
+
+#SELECT COMPONENT
+def select_view(request):
+    return render(request, 'documentation/pages/select.html')
