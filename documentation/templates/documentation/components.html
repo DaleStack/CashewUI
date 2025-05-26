@@ -1,5 +1,62 @@
 {% extends "documentation/base.html" %}
 
 {% block content %}
-    
-{% endblock  %}
+<div class="px-4 md:pr-20 lg:pr-40 xl:pr-60">
+  <h1 class="text-4xl font-bold mb-6 text-yellow-950">Components</h1>
+
+  <!-- DEFAULT TEXTAREA -->
+        <div class="mb-12">
+            <div class="flex items-center gap-2 flex-wrap">
+                <p class="font-bold text-yellow-950">Important!</p>
+            </div>
+
+            <div class="bg-amber-200 shadow-inner text-yellow-950 p-4 rounded-md flex flex-col items-center justify-center space-y-5 mb-3">
+                <div class="flex flex-col gap-1">
+                    When applying custom classes from the html, use "!" to mark tailwind that it is important
+                </div>
+
+
+            </div>
+
+            <div class="flex items-center gap-2 flex-wrap">
+                <p class="font-bold text-yellow-950">Example</p>
+            </div>
+
+            <div class="bg-amber-200 shadow-inner text-yellow-950 p-4 rounded-md flex flex-col items-center justify-center space-y-5 mb-3">
+                <div class="flex flex-col gap-1">
+                    <button class="ch-btn">This is a plain button</button>
+                </div>
+
+                <div class="flex flex-col gap-1">
+                    <button class="ch-btn !bg-amber-300">This is a customized button</button>
+                </div>
+
+
+            </div>
+
+            <div class="flex items-center gap-2 flex-wrap">
+                <p class="font-bold text-yellow-950">Code</p>
+            </div>
+
+            <div class="bg-gray-800 shadow-inner text-yellow-950 p-4 rounded-md flex flex-col items-center justify-center space-y-5 mb-3  max-h-60 overflow-y-auto">
+                <pre class="px-4 py-2 bg-gray-800 text-green-200 w-full rounded-md">
+<code>
+&lt;div class="flex flex-col gap-1"&gt;
+    &lt;button class="ch-btn"&gt;This is a plain button&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="flex flex-col gap-1"&gt;
+    &lt;button class="ch-btn !bg-amber-300"&gt;This is a customized button&lt;/button&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+            </div>
+        </div>
+  
+
+        {% include 'documentation/const/footer.html' %}
+</div>
+
+{% endblock %}
