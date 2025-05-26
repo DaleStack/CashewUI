@@ -43,3 +43,7 @@ def tooltip_view(request):
 #SELECT COMPONENT
 def select_view(request):
     return render(request, 'documentation/pages/select.html')
+
+#INPUT COMPONENT
+def input_view(request):
+    return render(request, 'documentation/pages/input.html')
