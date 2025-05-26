@@ -1,0 +1,29 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>CashewUI</title>
+	<link rel="icon" type="image/x-icon" href="{% static 'documentation/images/cashew.ico' %}">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-yellow-50" style="font-family: 'Quicksand', serif; font-weight: 400; font-style: normal;"> 
+		{% include 'home/const/navbar.html' %}
+
+	<div class="flex h-screen">
+			<!-- Main Content -->
+		<div class="flex-1 p-4">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</div>
+
+	</body>
+</html>
