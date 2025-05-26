@@ -306,6 +306,14 @@
          focus:ring-amber-400 focus:border-amber-400 transition;
 }
 
+/* TEXTAREA COMPONENT */
+.ch-textarea {
+  @apply px-4 py-2 rounded-md border border-amber-300 
+         bg-white text-yellow-950 placeholder-amber-400 
+         text-sm shadow-inner resize-none focus:outline-none 
+         focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition;
+}
+
 
   
 }

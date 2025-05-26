@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import components_view, button_view, dropdown_view, modal_view, accordion_view, badge_view, card_view, alert_view, tooltip_view, select_view, input_view
+from .views import components_view, button_view, dropdown_view, modal_view, accordion_view, badge_view, card_view, alert_view, tooltip_view, select_view, input_view, textarea_view
 
 urlpatterns = [
     path('components/', components_view, name='components_view'),
@@ -13,4 +13,5 @@ urlpatterns = [
     path('components/tooltip/', tooltip_view, name='tooltip_view'),
     path('components/select/', select_view, name='select_view'),
     path('components/input/', input_view, name='input_view'),
+    path('components/textarea/', textarea_view, name='textarea_view'),
 ]

@@ -47,3 +47,7 @@ def select_view(request):
 #INPUT COMPONENT
 def input_view(request):
     return render(request, 'documentation/pages/input.html')
+
+#TEXTAREA COMPONENT
+def textarea_view(request):
+    return render(request, 'documentation/pages/textarea.html')
