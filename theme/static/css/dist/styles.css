@@ -19,7 +19,6 @@
     --color-amber-500: oklch(76.9% 0.188 70.08);
     --color-amber-700: oklch(55.5% 0.163 48.998);
     --color-amber-800: oklch(47.3% 0.137 46.201);
-    --color-amber-950: oklch(27.9% 0.077 45.635);
     --color-yellow-50: oklch(98.7% 0.026 102.212);
     --color-yellow-100: oklch(97.3% 0.071 103.193);
     --color-yellow-200: oklch(94.5% 0.129 101.54);
@@ -41,8 +40,6 @@
     --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
-    --color-gray-300: oklch(87.2% 0.01 258.338);
-    --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-black: #000;
@@ -81,8 +78,6 @@
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    --animate-bounce: bounce 1s infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -279,12 +274,6 @@
   .left-full {
     left: 100%;
   }
-  .\!z-0 {
-    z-index: 0 !important;
-  }
-  .z-0 {
-    z-index: 0;
-  }
   .z-10 {
     z-index: 10;
   }
@@ -322,9 +311,6 @@
   .my-2 {
     margin-block: calc(var(--spacing) * 2);
   }
-  .my-5 {
-    margin-block: calc(var(--spacing) * 5);
-  }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
@@ -334,14 +320,8 @@
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
   }
-  .mt-5 {
-    margin-top: calc(var(--spacing) * 5);
-  }
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
-  }
-  .mt-10 {
-    margin-top: calc(var(--spacing) * 10);
   }
   .mt-16 {
     margin-top: calc(var(--spacing) * 16);
@@ -409,11 +389,14 @@
   .h-12 {
     height: calc(var(--spacing) * 12);
   }
-  .h-\[50\%\] {
-    height: 50%;
-  }
   .h-\[50vh\] {
     height: 50vh;
+  }
+  .h-\[75vh\] {
+    height: 75vh;
+  }
+  .h-\[80vh\] {
+    height: 80vh;
   }
   .h-auto {
     height: auto;
@@ -429,15 +412,6 @@
   }
   .min-h-full {
     min-height: 100%;
-  }
-  .min-h-screen {
-    min-height: 100vh;
-  }
-  .\!w-50 {
-    width: calc(var(--spacing) * 50) !important;
-  }
-  .\!w-80 {
-    width: calc(var(--spacing) * 80) !important;
   }
   .\!w-120 {
     width: calc(var(--spacing) * 120) !important;
@@ -463,12 +437,6 @@
   .w-40 {
     width: calc(var(--spacing) * 40);
   }
-  .w-50 {
-    width: calc(var(--spacing) * 50);
-  }
-  .w-56 {
-    width: calc(var(--spacing) * 56);
-  }
   .w-60 {
     width: calc(var(--spacing) * 60);
   }
@@ -480,15 +448,6 @@
   }
   .w-96 {
     width: calc(var(--spacing) * 96);
-  }
-  .w-120 {
-    width: calc(var(--spacing) * 120);
-  }
-  .w-140 {
-    width: calc(var(--spacing) * 140);
-  }
-  .w-150 {
-    width: calc(var(--spacing) * 150);
   }
   .w-full {
     width: 100%;
@@ -518,22 +477,12 @@
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
-  .\!translate-y-1 {
-    --tw-translate-y: calc(var(--spacing) * 1) !important;
-    translate: var(--tw-translate-x) var(--tw-translate-y) !important;
-  }
   .-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-  }
-  .animate-bounce {
-    animation: var(--animate-bounce);
-  }
-  .animate-pulse {
-    animation: var(--animate-pulse);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -678,9 +627,6 @@
       border-color: color-mix(in oklab, var(--color-black) 30%, transparent) !important;
     }
   }
-  .\!border-gray-500 {
-    border-color: var(--color-gray-500) !important;
-  }
   .border-amber-200 {
     border-color: var(--color-amber-200);
   }
@@ -756,9 +702,6 @@
   .bg-amber-400 {
     background-color: var(--color-amber-400);
   }
-  .bg-amber-950 {
-    background-color: var(--color-amber-950);
-  }
   .bg-black {
     background-color: var(--color-black);
   }
@@ -784,12 +727,6 @@
   }
   .bg-gray-100 {
     background-color: var(--color-gray-100);
-  }
-  .bg-gray-300 {
-    background-color: var(--color-gray-300);
-  }
-  .bg-gray-700 {
-    background-color: var(--color-gray-700);
   }
   .bg-gray-800 {
     background-color: var(--color-gray-800);
@@ -869,9 +806,6 @@
   .py-5 {
     padding-block: calc(var(--spacing) * 5);
   }
-  .py-10 {
-    padding-block: calc(var(--spacing) * 10);
-  }
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
   }
@@ -880,9 +814,6 @@
   }
   .pl-2 {
     padding-left: calc(var(--spacing) * 2);
-  }
-  .text-center {
-    text-align: center;
   }
   .text-left {
     text-align: left;
@@ -1106,12 +1037,6 @@
     }
   }
   @media (hover: hover) {
-    .hover\:\!translate-y-1:hover {
-      --tw-translate-y: calc(var(--spacing) * 1) !important;
-      translate: var(--tw-translate-x) var(--tw-translate-y) !important;
-    }
-  }
-  @media (hover: hover) {
     .hover\:border-none:hover {
       --tw-border-style: none;
       border-style: none;
@@ -1120,11 +1045,6 @@
   @media (hover: hover) {
     .hover\:\!bg-transparent:hover {
       background-color: transparent !important;
-    }
-  }
-  @media (hover: hover) {
-    .hover\:\!bg-white:hover {
-      background-color: var(--color-white) !important;
     }
   }
   @media (hover: hover) {
@@ -1158,18 +1078,8 @@
     }
   }
   @media (hover: hover) {
-    .hover\:bg-white:hover {
-      background-color: var(--color-white);
-    }
-  }
-  @media (hover: hover) {
     .hover\:bg-yellow-600:hover {
       background-color: var(--color-yellow-600);
-    }
-  }
-  @media (hover: hover) {
-    .hover\:\!bg-none:hover {
-      background-image: none !important;
     }
   }
   @media (hover: hover) {
@@ -2310,21 +2220,6 @@
   syntax: "*";
   inherits: false;
   initial-value: 1;
-}
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
-}
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
