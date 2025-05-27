@@ -1,5 +1,5 @@
 {% extends 'home/base.html' %}
-
+{% load static %}
 {% block content %}
 <style>
     @keyframes floatUpDown {
@@ -36,9 +36,17 @@
                     </p>
                 </div>
 
-                <div class="mt-8 space-x-3">
-                    <a class="ch-btn ch-btn-warm hover:!-translate-y-1 duration-300">Get Started</a>
-                    <a class="ch-btn ch-btn-outline !border-black/30 hover:!bg-transparent hover:!text-black hover:!-translate-y-1 duration-300">View Components</a>
+                <div class="mt-8 flex space-x-3">
+                    <a href="{% url 'components_view' %}" class="ch-btn ch-btn-warm hover:-translate-y-1 duration-300">
+                        Get Started
+                    </a>
+
+                    <a href="https://github.com/DaleStack/CashewUI" target="_blank" class="ch-btn ch-btn-blk !border-black/30  hover:-translate-y-1 duration-300 flex-row">
+                        <div class="flex items-center">
+                            <img src="{% static 'home/images/Github.svg' %}" alt="Github" class="w-5 h-5">
+                            <p class="ml-2">View Github</p>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -63,13 +71,32 @@
     </div>
 
     <!--SECOND PAGE-->
-    <div class="h-auto">
+    <div class="h-auto pb-10">
         <div class="flex flex-col justify-center items-center">
             <h1 class="text-5xl font-bold text-yellow-950">
                 Craft Beautiful UIs with <span class="text-amber-400 font-extrabold">Powerful Features</span>
             </h1>
-            <p class="text-3xl font-bold text-yellow-950">A little UI Library with Big Possibilities.</p>
-            
+            <p class="text-lg font-bold w-150 text-black/50 text-center">Everything you need to create stunning user interfaces that work across devices and platforms.</p>
+        </div>
+
+        <div class="px-20 flex items-center justify-between mt-8">
+            <div class="ch-card !inline-block !w-80 !shadow-none hover:!shadow-lg hover:!shadow-black/50 hover:-translate-y-1 !h-50 !border-black/30">
+                <img class="w-8 h-8" src="{% static 'home/images/customize.svg' %}" alt="Customizable">
+                <p class="font-bold text-xl">Customizable</p>
+                <p class="w-full">Easily customize components to match your brand and design needs.</p>
+            </div>
+
+            <div class="ch-card !inline-block !w-80 !shadow-none hover:!shadow-lg hover:!shadow-black/50 hover:-translate-y-1 !h-50 !border-black/30">
+                <img class="w-8 h-8" src="{% static 'home/images/responsive.svg' %}" alt="Customizable">
+                <p class="font-bold text-xl">Responsive</p>
+                <p class="w-full">Components are designed to work across all device sizes.</p>
+            </div>
+
+            <div class="ch-card !inline-block !w-80 !shadow-none hover:!shadow-lg hover:!shadow-black/50 hover:-translate-y-1 !h-50 !border-black/30">
+                <img class="w-8 h-8" src="{% static 'home/images/developer.svg' %}" alt="Customizable">
+                <p class="font-bold text-xl">Developer Friendly</p>
+                <p class="w-full">Easy to understand and easy to implement.</p>
+            </div>
         </div>
     </div>
 </div>
