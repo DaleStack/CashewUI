@@ -1,7 +1,72 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
+<style>
+    @keyframes floatUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Moves up */
+    }
+    100% {
+        transform: translateY(0); /* Returns to original position */
+    }
+}
+
+.floating-element {
+    animation: floatUpDown 2s ease-in-out infinite;
+}
+
+</style>
+
 <div class="lg:px-24 px-2">
-    
+    <!--FIRST PAGE-->
+    <div class="h-[50vh] overflow-hidden">
+        <div class="flex justify-between items-center h-full px-10">
+            <!-- Left content -->
+            <div>
+                <div>
+                    <h1 class="text-6xl font-bold text-amber-400">
+                        Cashew<span class="text-yellow-950 font-extrabold">UI</span>
+                    </h1>
+                    <p class="text-3xl font-bold">Modern TailwindCSS Component Library</p>
+                    <p class="max-w-lg text-amber-800 mt-3">
+                        Beautiful, accessible, and customizable components that you can drop into your Django projects and get building right away.
+                    </p>
+                </div>
+
+                <div class="mt-8 space-x-3">
+                    <a class="ch-btn ch-btn-warm hover:!-translate-y-1 duration-300">Get Started</a>
+                    <a class="ch-btn ch-btn-outline !border-black/30 hover:!bg-transparent hover:!text-black hover:!-translate-y-1 duration-300">View Components</a>
+                </div>
+            </div>
+
+            <!-- Right content -->
+            <div>
+                <div class="ch-card !w-120 !border-black/20 floating-element">
+                    <p class="text-yellow-950 font-bold mb-2">Button Component</p>
+
+                    <div class="space-y-2 bg-yellow-200 rounded-xl p-4">
+                        <button class="ch-btn ch-btn-warm !w-full">Colored Button</button>
+                        <button class="ch-btn !w-full">Default Button</button>
+                        <button class="ch-btn ch-btn-outline !w-full">Outline Button</button>
+                    </div>
+
+                    <progress class="progress progress-warning w-full" value="10" max="100"></progress>
+                    <progress class="progress progress-warning w-full" value="40" max="100"></progress>
+                    <progress class="progress progress-warning w-full" value="70" max="100"></progress>
+                    <progress class="progress progress-warning w-full" value="100" max="100"></progress>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--SECOND PAGE-->
+    <div class="h-auto overflow-hidden">
+        <div>
+            Test
+        </div>
+    </div>
 </div>
 {% endblock %}
